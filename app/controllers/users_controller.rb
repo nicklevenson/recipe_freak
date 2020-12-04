@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   get "/users/home" do
    
     if session[:user_id]
+      @recipes = current_user.recipes
       erb :"/users/show.html"
     else
       @error = "Please log in or sign up to view this content"

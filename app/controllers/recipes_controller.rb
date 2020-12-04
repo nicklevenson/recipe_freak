@@ -7,7 +7,13 @@ class RecipesController < ApplicationController
 
   # GET: /recipes/new
   get "/recipes/new" do
-    erb :"/recipes/new.html"
+    if logged_in?
+      erb :"/recipes/new.html"
+    else
+      @error = "You must log in or create an account to make recipes."
+      erb :'/sessions/new.html'
+    end
+
   end
 
   # POST: /recipes
