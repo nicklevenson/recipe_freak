@@ -1,6 +1,6 @@
 <h1>Make A New Recipe</h1>
 
-<form action="/recipe" action="post">
+<form action="/recipes" method="post">
 
   <label>Recipe Details:</label><br>
   <input type="text" name="recipe[name]" placeholder="Recipe Name"><br>
@@ -10,11 +10,11 @@
   <br> 
 
   <label>Ingredients:</label><br>
-  <input type="integer" name="ingredient[amount]" placeholder="3">
-  <input type="text" name="ingredient[unit_type]" placeholder="Cups">
-  <input type="text" name="ingredient[name]" placeholder="Ingredient Name"><br><br>
+  <input type="integer" name="ingredient[][amount]" placeholder="3">
+  <input type="text" name="ingredient[][unit_type]" placeholder="Cups">
+  <input type="text" name="ingredient[][name]" placeholder="Ingredient Name"><br>
   <div id="newElementId"></div>
-  <input type="button" id="addIngredient" onclick="createNewElement();" value="Add Another Ingredient">
+  <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
   
 
 
@@ -29,14 +29,9 @@
 </form>
 
 <script type="text/JavaScript">
-function createNewElement() {
-    // First create a DIV element.
+function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
-
-    // Then add the content (a new input box) of the element.
-	txtNewInputBox.innerHTML = "<input type='integer' name='ingredient[amount]' placeholder='3'> <input type='text' name='ingredient[unit_type]' placeholder='Cups'> <input type='text' name='ingredient[name]' placeholder='Ingredient Name'><br><br>";
-
-    // Finally put it where it is supposed to appear.
+	txtNewInputBox.innerHTML = "<input type='integer' name='ingredient[][amount]' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
 	document.getElementById("newElementId").appendChild(txtNewInputBox);
 }
 </script>

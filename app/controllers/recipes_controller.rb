@@ -18,7 +18,8 @@ class RecipesController < ApplicationController
 
   # POST: /recipes
   post "/recipes" do
-    redirect "/recipes"
+    binding.pry
+    
   end
 
   # GET: /recipes/5
