@@ -17,9 +17,17 @@
     <div class="wrapper">
       <div class="topnav">
         <a href="/">Home</a>
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Log In</a>
         <a href="/users/home">My Recipes</a>
+
+       <%if !logged_in?%>
+        <a href="/login">Log In</a>
+        <a href="/signup">Sign Up</a>
+        <%else%>
+          <form action="/logout" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Log Out">
+          </form>
+        <%end%>
       </div>
         <%= yield %>
 

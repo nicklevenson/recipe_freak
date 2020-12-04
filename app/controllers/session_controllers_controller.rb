@@ -5,10 +5,11 @@ class SessionControllersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-
-    if user && user.authenticate(params[:password])
-      session[user_id] = user.id
+    
+    user = User.find_by_email(params[:user][:email])
+    
+    if user && user.authenticate(params[:user][:password])
+      session[:user_id] = user.id
       redirect '/users/home'
     else
       @error = "Incorrect username or password"
@@ -17,7 +18,8 @@ class SessionControllersController < ApplicationController
   end
 
   delete '/logout' do 
-    
+    session.clear
+    redirect '/'
   end
 
 end

@@ -1,4 +1,4 @@
-user = User.create(email: "nicklevenson@gmail.com", username: "nick", password_digest: "circle")
+user = User.create(email: "nicklevenson@gmail.com", username: "nick", password: "circle")
 
 recipe = Recipe.create(name: "pasta")
 
