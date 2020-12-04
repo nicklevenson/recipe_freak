@@ -1,1 +1,10 @@
 <h1>Welcome to Recipe Freak</h1>
+
+<h3>Browse Recipes</h3>
+
+<%@recipes.each do |recipe| %>
+  <a href="/recipe/<%=recipe.id%>">
+  <h4><%=recipe.name%> 
+  <%if recipe.cuisine %> - <%=recipe.cuisine.name%><%end%>
+  <%if recipe.user %> - <%=recipe.user.username%> <%end%></h4></a>
+<%end%>
