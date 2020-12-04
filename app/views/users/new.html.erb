@@ -1,10 +1,13 @@
 <h1>Welcome to Recipe Freak!</h1>
 
-Sign Up:
+<br><h3>Sign Up:</h3><br>
+<%if @error %> 
+  <%=@error%>
+<%end%>
 
 <form action="/signup" method="POST">
-Username: 
-Email:
-Password:
+  Username: <input type="text" required="true" name="user[username]"><br><br>
+  Email: <input type="email" required="true"  name="user[email]"><br><br>
+  Password: <input type="password" required="true" name="user[password]"><br><br>
 <input type="submit" value="Sign Up">
 </form>
