@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
 
   # GET: /recipes/5
   get "/recipes/:id" do
+    @recipe = Recipe.find(params[:id])
     erb :"/recipes/show.html"
   end
 
