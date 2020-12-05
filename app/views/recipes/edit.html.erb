@@ -1,1 +1,10 @@
+<% if logged_in? && @recipe.user.id == session[:user_id]%>
 <h1>Edit Recipe</h1>
+
+
+
+<% elsif logged_in? && @recipe.user.id != session[:user_id]%>
+<h3>This recipe doesn't belong to you.</h3>
+<% else %>
+<h3>Please <a href="/login">Log In</a> to view this page</h3>
+<%end%>
