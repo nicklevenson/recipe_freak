@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :email, presence: true
   validates :email, uniqueness: true
-  has_many :recipes
+  has_many :recipes, :dependent => :destroy
 end

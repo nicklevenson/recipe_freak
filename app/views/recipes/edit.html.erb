@@ -1,6 +1,52 @@
 <% if logged_in? && @recipe.user.id == session[:user_id]%>
 <h1>Edit Recipe</h1>
+<form action="/recipes/<%@recipe.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
 
+  <label>Recipe Details:</label><br>
+  <input type="text" name="recipe[name]" required="true" value=<%=@recipe.name%>><br>
+  <input type="text" name="recipe[cook_time]" required="true" value=<%=@recipe.cook_time%>><br>
+  <input type="text" name="cuisine[name]" required="true" value=<%=@recipe.cuisine.name%>><br>
+
+  <br> 
+
+  <label>Ingredients:</label><br>
+  <%@recipe.ingredients.each do |ingredient|%>
+    <input type="number" name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
+    <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
+    <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>"><br>
+  <% end %>
+
+  <div id="newIngredient"></div>
+  <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
+  
+  <br><br>
+
+  <label>Steps:</label><br>
+  <%@recipe.steps.each do |step|%>
+     <input type="text" name="step[][action]" required="true" value="<%=step.action%>"><br>
+  <% end %>
+  <div id="newStep"></div>
+  <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
+
+
+  <br><br><br>
+  <input type="submit" value="Make Edits">
+</form>
+
+<script type="text/JavaScript">
+function createNewIngredient() {
+	var txtNewInputBox = document.createElement('div');
+	txtNewInputBox.innerHTML = "<input type='number' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
+	document.getElementById("newIngredient").appendChild(txtNewInputBox);
+}
+
+function createNewStep() {
+	var txtNewInputBox = document.createElement('div');
+	txtNewInputBox.innerHTML = "<input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><br>";
+	document.getElementById("newStep").appendChild(txtNewInputBox);
+}
+</script>
 
 
 <% elsif logged_in? && @recipe.user.id != session[:user_id]%>
