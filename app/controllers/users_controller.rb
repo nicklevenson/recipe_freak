@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       erb :"/users/show.html"
     else
       @error = "Please log in or sign up to view this content"
-      erb :"/users/show.html"
+      erb :'/sessions/new.html'
     end
   end
 

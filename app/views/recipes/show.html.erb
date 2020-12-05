@@ -2,7 +2,6 @@
 <h2><%=@recipe.cuisine.name.capitalize%></h2>
 
 <h3>Ingredients:</h3>
-<br>
 <ol>
 <%@recipe.ingredients.each do |ingredient|%>
   <li><%=ingredient.amount%> <%=ingredient.unit_type%> of <%=ingredient.name%></li>

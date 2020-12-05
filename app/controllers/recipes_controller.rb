@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
     if logged_in?
       erb :"/recipes/new.html"
     else
-      @error = "You must log in or create an account to make recipes."
+      @error = "You must log in or sign up to make recipes."
       erb :'/sessions/new.html'
     end
 
