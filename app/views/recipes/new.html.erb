@@ -3,35 +3,39 @@
 <form action="/recipes" method="post">
 
   <label>Recipe Details:</label><br>
-  <input type="text" name="recipe[name]" placeholder="Recipe Name"><br>
-  <input type="text" name="recipe[cook_time]" placeholder="Cook Time"><br>
-  <input type="text" name="cuisine[name]" placeholder="Cuisine"><br>
+  <input type="text" name="recipe[name]" required="true" placeholder="Recipe Name"><br>
+  <input type="text" name="recipe[cook_time]" required="true" placeholder="Cook Time"><br>
+  <input type="text" name="cuisine[name]" required="true" placeholder="Cuisine"><br>
 
   <br> 
 
   <label>Ingredients:</label><br>
-  <input type="integer" name="ingredient[][amount]" placeholder="3">
-  <input type="text" name="ingredient[][unit_type]" placeholder="Cups">
-  <input type="text" name="ingredient[][name]" placeholder="Ingredient Name"><br>
-  <div id="newElementId"></div>
+  <input type="number" name="ingredient[][amount]" required="true" placeholder="3">
+  <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
+  <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name"><br>
+  <div id="newIngredient"></div>
   <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
   
+  <br><br>
 
-
-
-  <br>
-  <br>
   <label>Steps:</label><br>
-  <input type="text" name="step[action]" placeholder="Put the beans in the pot"><br>
-
-  <br>
+  <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot"><br>
+  <div id="newStep"></div>
+  <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
+  <br><br><br>
   <input type="submit" value="Make New Recipe">
 </form>
 
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<input type='integer' name='ingredient[][amount]' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
-	document.getElementById("newElementId").appendChild(txtNewInputBox);
+	txtNewInputBox.innerHTML = "<input type='number' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
+	document.getElementById("newIngredient").appendChild(txtNewInputBox);
+}
+
+function createNewStep() {
+	var txtNewInputBox = document.createElement('div');
+	txtNewInputBox.innerHTML = "<input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><br>";
+	document.getElementById("newStep").appendChild(txtNewInputBox);
 }
 </script>

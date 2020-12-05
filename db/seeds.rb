@@ -1,7 +1,7 @@
 user = User.create(email: "nicklevenson@gmail.com", username: "nick", password: "circle")
 
 recipe = Recipe.create(name: "pasta")
-
+user.recipes << recipe
 Cuisine.create({name: "Italian"}).recipes << recipe
 
 recipe.ingredients << Ingredient.create({name: "noodles", amount: 1, unit_type: "Cup"})

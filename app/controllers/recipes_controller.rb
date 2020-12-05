@@ -18,8 +18,14 @@ class RecipesController < ApplicationController
 
   # POST: /recipes
   post "/recipes" do
-    binding.pry
     
+    recipe = Recipe.create(params[:recipe])
+    User.find(session[:user_id]).recipes << recipe
+    Cuisine.find_or_create_by(params[:cuisine]).recipes << recipe
+    recipe.ingredients << Ingredient.create(params[:ingredient])
+    recipe.steps << Step.create(params[:step])
+    
+    redirect :'/users/home'
   end
 
   # GET: /recipes/5

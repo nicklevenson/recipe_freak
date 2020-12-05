@@ -1,4 +1,5 @@
-<h1><%=@recipe.name%></h1>
+<h1><%=@recipe.name.capitalize%> by <%=@recipe.user.username%></h1>
+<h2><%=@recipe.cuisine.name.capitalize%></h2>
 
 <h3>Ingredients:</h3>
 <br>
@@ -7,3 +8,11 @@
   <li><%=ingredient.amount%> <%=ingredient.unit_type%> of <%=ingredient.name%></li>
 <%end%>
 </ol>
+<br><br>
+<h3>Instructions:</h3>
+<ol>
+<%@recipe.steps.each do |step|%>
+  <li>-<%=step.action%></li>
+<%end%>
+</ol>
+
