@@ -1,21 +1,29 @@
 <h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%></h1>
 <h2><%=@recipe.cuisine.name.titleize%></h2>
+<h3>Cook Time: <%=@recipe.cook_time.titleize%></h3>
+<br>
 
 <%if @recipe.user.id == session[:user_id]%>
   <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
+  <form action="/recipes/<%=@recipe.id%>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Recipe">
+  </form>
 <%end%>
 
 <h3>Ingredients:</h3>
 <ol>
-<%@recipe.ingredients.each do |ingredient|%>
-  <li><%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
-<%end%>
+  <%@recipe.ingredients.each do |ingredient|%>
+    <li><%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
+  <%end%>
 </ol>
+
 <br><br>
+
 <h3>Instructions:</h3>
 <ol>
-<%@recipe.steps.each do |step|%>
-  <li>-<%=step.action%></li>
-<%end%>
+  <%@recipe.steps.each do |step|%>
+    <li>-<%=step.action%></li>
+  <%end%>
 </ol>
 

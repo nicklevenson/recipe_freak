@@ -18,13 +18,11 @@ class RecipesController < ApplicationController
 
   # POST: /recipes
   post "/recipes" do
-    
     recipe = Recipe.create(params[:recipe])
     User.find(session[:user_id]).recipes << recipe
     Cuisine.find_or_create_by(params[:cuisine]).recipes << recipe
     recipe.ingredients << Ingredient.create(params[:ingredient])
     recipe.steps << Step.create(params[:step])
-    
     redirect :'/users/home'
   end
 
@@ -44,6 +42,7 @@ class RecipesController < ApplicationController
   patch "/recipes/:id" do
     recipe = Recipe.find(params[:id])
     recipe.update(params[:recipe])
+
     Cuisine.find_or_create_by(params[:cuisine]).recipes << recipe
 
     recipe.ingredients.destroy_all
@@ -56,6 +55,15 @@ class RecipesController < ApplicationController
 
   # DELETE: /recipes/5/delete
   delete "/recipes/:id/delete" do
-    redirect "/recipes"
+    recipe = Recipe.find(params[:id])
+    if logged_in?
+      if session[:user_id] == recipe.user.id
+        recipe.destroy
+        redirect '/users/home'
+      end
+    else
+      redirect "/recipes"
+    end
+  
   end
 end
