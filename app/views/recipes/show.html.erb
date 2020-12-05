@@ -1,5 +1,5 @@
-<h1><%=@recipe.name.capitalize%> by <%=@recipe.user.username%></h1>
-<h2><%=@recipe.cuisine.name.capitalize%></h2>
+<h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%></h1>
+<h2><%=@recipe.cuisine.name.titleize%></h2>
 
 <%if @recipe.user.id == session[:user_id]%>
   <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
