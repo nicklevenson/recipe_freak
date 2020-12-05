@@ -1,6 +1,10 @@
 <h1><%=@recipe.name.capitalize%> by <%=@recipe.user.username%></h1>
 <h2><%=@recipe.cuisine.name.capitalize%></h2>
 
+<%if @recipe.user.id == session[:user_id]%>
+  <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
+<%end%>
+
 <h3>Ingredients:</h3>
 <ol>
 <%@recipe.ingredients.each do |ingredient|%>
