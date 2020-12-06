@@ -27,8 +27,13 @@ class UsersController < ApplicationController
   end
 
   get "/users/like" do
-    @recipes = User.find(session[:user_id]).likes.collect{|like| Recipe.find(like.recipe_id)}
-    erb :'users/liked_recipes'
+    if logged_in?
+      @recipes = User.find(session[:user_id]).likes.collect{|like| Recipe.find(like.recipe_id)}
+      erb :'users/liked_recipes'
+    else
+      @error = "Please log in or sign up to view this content"
+      erb :'/sessions/new.html'
+    end
   end
 
   post "/users/like" do
