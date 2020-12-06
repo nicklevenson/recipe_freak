@@ -3,9 +3,8 @@ user = User.create(email: "nicklevenson@gmail.com", username: "nick", password: 
 recipe = Recipe.create(name: "pasta")
 user.recipes << recipe
 Cuisine.create({name: "Italian"}).recipes << recipe
-
+recipe.cook_time = "3 mins"
 recipe.ingredients << Ingredient.create({name: "noodles", amount: 1, unit_type: "Cup"})
-
 recipe.steps << Step.create({action: "Make the spaget"})
 
 10.times do

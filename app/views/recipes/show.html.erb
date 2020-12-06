@@ -1,6 +1,23 @@
-<h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%></h1>
+<h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%>
+ <%if @recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
+    <form action="/recipes/like" method="post" style="display: inline-block;">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+      <input type="submit" value="Unlike" style="cursor: pointer;">
+    </form>
+  <%else%>
+    <form action="/recipes/like" method="post" style="display: inline-block;">
+      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+      <input type="submit" value="Like Recipe" style="cursor: pointer;">
+    </form>
+  <%end%>
+</h1>
+  <% if @like_error %>
+    <%=@like_error%>
+  <%end%>
+
 <h2><%=@recipe.cuisine.name.titleize%></h2>
-<h3>Cook Time: <%=@recipe.cook_time.titleize%></h3>
+<h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
 <br>
 
 <%if @recipe.user.id == session[:user_id]%>
