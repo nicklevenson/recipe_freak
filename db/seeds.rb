@@ -10,7 +10,7 @@ recipe.steps << Step.create({action: "Make the spaget"})
 
 10.times do
   user1 = User.create(email: Faker::Internet.unique.email , username:  Faker::Name.unique.name , password: Faker::Color.unique.hex_color)
-  recipe1 = Recipe.create(name: Faker::Food.dish)
+  recipe1 = Recipe.create(name: Faker::Food.dish, cook_time: "#{rand(50)} minutes")
   user1.recipes << recipe1
   Cuisine.create({name: Faker::Restaurant.type}).recipes << recipe1
   3.times do
