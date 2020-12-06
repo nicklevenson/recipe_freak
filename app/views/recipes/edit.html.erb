@@ -12,7 +12,7 @@
 
   <label>Ingredients:</label><br>
   <%@recipe.ingredients.each do |ingredient|%>
-    <input type="number" name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
+    <input type="number" step='0.1' name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
     <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
     <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>"><br>
   <% end %>
@@ -37,7 +37,7 @@
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<input type='number' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
+	txtNewInputBox.innerHTML = "<input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
 	document.getElementById("newIngredient").appendChild(txtNewInputBox);
 }
 

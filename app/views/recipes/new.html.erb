@@ -10,7 +10,7 @@
   <br> 
 
   <label>Ingredients:</label><br>
-  <input type="number" name="ingredient[][amount]" required="true" placeholder="3">
+  <input type="number" step="0.1" name="ingredient[][amount]" required="true" placeholder="3">
   <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
   <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name"><br>
   <div id="newIngredient"></div>
@@ -29,7 +29,7 @@
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<input type='number' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
+	txtNewInputBox.innerHTML = "<input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
 	document.getElementById("newIngredient").appendChild(txtNewInputBox);
 }
 
