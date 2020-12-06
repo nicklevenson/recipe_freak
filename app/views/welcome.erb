@@ -2,13 +2,27 @@
 
 <h3>Browse Recipes</h3>
 
+  <% if @like_error %>
+    <%=@like_error%>
+  <%end%>
+
 <%@recipes.each do |recipe| %>
   <a href="/recipes/<%=recipe.id%>">
   <h4><%=recipe.name.titleize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.titleize%><%end%>
   <%if recipe.user %> - <%=recipe.user.username%> <%end%></a>
-  <form action="/users/like" method="post" style="display: inline-block;">
-    <input type="button" name="<%=recipe.id%>" value="Like" style="cursor: pointer;">
-  </form>
+
+  <%if recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
+    <form action="/users/like" method="post" style="display: inline-block;">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+      <input type="submit" value="Unlike" style="cursor: pointer;">
+    </form>
+  <%else%>
+    <form action="/users/like" method="post" style="display: inline-block;">
+      <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+      <input type="submit" value="Like" style="cursor: pointer;">
+    </form>
+  <%end%>
   </h4>
 <%end%>
