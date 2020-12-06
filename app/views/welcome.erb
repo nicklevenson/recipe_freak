@@ -1,4 +1,4 @@
-<h1>Welcome to Recipe Freak</h1>
+
 
 <h3>Browse Recipes</h3>
 
@@ -6,5 +6,9 @@
   <a href="/recipes/<%=recipe.id%>">
   <h4><%=recipe.name.titleize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.titleize%><%end%>
-  <%if recipe.user %> - <%=recipe.user.username%> <%end%></h4></a>
+  <%if recipe.user %> - <%=recipe.user.username%> <%end%></a>
+  <form action="/users/like" method="post" style="display: inline-block;">
+    <input type="button" name="<%=recipe.id%>" value="Like" style="cursor: pointer;">
+  </form>
+  </h4>
 <%end%>
