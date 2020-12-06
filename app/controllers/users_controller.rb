@@ -19,12 +19,16 @@ class UsersController < ApplicationController
     user = User.new(params[:user])
     if user.save 
       session[:user_id] = user.id
-      redirect "/users/home"
-        
+      redirect "/users/home"      
     else 
       @error = user.errors.full_messages.join(" - ")
       erb :'/users/new.html'
     end
+  end
+
+  get "/users/like" do
+    @recipes = User.find(session[:user_id]).likes.collect{|like| Recipe.find(like.recipe_id)}
+    erb :'users/liked_recipes'
   end
 
   post "/users/like" do
