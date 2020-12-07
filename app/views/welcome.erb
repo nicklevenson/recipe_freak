@@ -5,8 +5,10 @@
   <% if @like_error %>
     <%=@like_error%>
   <%end%>
+  
 
 <%@recipes.each do |recipe| %>
+
   <a href="/recipes/<%=recipe.id%>">
   <h4><%=recipe.name.titleize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.titleize%><%end%>
