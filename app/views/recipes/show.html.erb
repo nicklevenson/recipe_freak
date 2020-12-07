@@ -33,8 +33,10 @@
 
 <h3>Ingredients:</h3>
 <ol>
+  
   <%@recipe.ingredients.each do |ingredient|%>
     <li><%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
+    
   <%end%>
 </ol>
 
@@ -49,3 +51,4 @@
 <%else%>
   <h2>Private Recipe</h2>
 <%end%>
+

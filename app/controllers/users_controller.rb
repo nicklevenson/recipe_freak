@@ -60,4 +60,14 @@ class UsersController < ApplicationController
     like.destroy
     redirect '/'
   end
+
+  get '/users/bag' do
+    if logged_in?
+      @recipes = User.find(session[:user_id]).likes.collect{|like| Recipe.find(like.recipe_id)}
+      erb :'users/grocery_bag'
+    else
+      @error = "Please log in or sign up to view this content"
+      erb :'/sessions/new.html'
+    end
+  end
 end
