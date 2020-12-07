@@ -12,12 +12,16 @@
 
   <label>Ingredients:</label><br>
   <%@recipe.ingredients.each do |ingredient|%>
-    <input type="number" step='0.1' name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
-    <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
-    <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>"><br>
+    <div id='ingredient<%=ingredient.id%>'>
+      <input type="number" step='0.1' name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
+      <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
+      <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>">
+      <input type="button" onclick="deleteIngredient('ingredient<%=ingredient.id%>');" value="Delete Ingredient" style="display: inline-block;">
+    </div>
+ <div id="newIngredient"></div>
   <% end %>
 
-  <div id="newIngredient"></div>
+ 
   <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
   
   <br><br>
@@ -37,7 +41,7 @@
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
+	txtNewInputBox.innerHTML = "<div id='newIG'><input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><input type='button' onclick='deleteIngredient(\"newIG\");' value='Delete Ingredient' style='display: inline-block;'></div>";
 	document.getElementById("newIngredient").appendChild(txtNewInputBox);
 }
 
@@ -46,6 +50,13 @@ function createNewStep() {
 	txtNewInputBox.innerHTML = "<input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><br>";
 	document.getElementById("newStep").appendChild(txtNewInputBox);
 }
+
+function deleteIngredient(id) {
+      var ingredient = document.getElementById(id);
+      ingredient.remove()
+     
+}
+
 </script>
 
 
