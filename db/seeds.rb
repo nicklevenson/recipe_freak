@@ -1,6 +1,6 @@
 user = User.create(email: "nicklevenson@gmail.com", username: "nick", password: "circle")
 
-recipe = Recipe.create(name: "pasta", cook_time: "4 mins", serving_size: 6)
+recipe = Recipe.create(name: "pasta", cook_time: "4 mins", serving_size: 6, public?:false)
 user.recipes << recipe
 Cuisine.create({name: "Italian"}).recipes << recipe
 recipe.cook_time = "3 mins"
@@ -9,7 +9,7 @@ recipe.steps << Step.create({action: "Make the spaget"})
 
 10.times do
   user1 = User.create(email: Faker::Internet.unique.email , username:  Faker::Name.unique.name , password: Faker::Color.unique.hex_color)
-  recipe1 = Recipe.create(name: Faker::Food.dish, cook_time: "#{rand(50)} minutes", serving_size: rand(10))
+  recipe1 = Recipe.create(name: Faker::Food.dish, cook_time: "#{rand(50)} minutes", serving_size: rand(10), public?:true)
   user1.recipes << recipe1
   Cuisine.create({name: Faker::Restaurant.type}).recipes << recipe1
   3.times do

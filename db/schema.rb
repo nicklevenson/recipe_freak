@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_015529) do
     t.string "name"
     t.string "cook_time"
     t.integer "serving_size"
+    t.boolean "public?"
     t.integer "user_id"
     t.integer "cuisine_id"
     t.datetime "created_at", null: false

@@ -18,6 +18,11 @@ class RecipesController < ApplicationController
 
   # POST: /recipes
   post "/recipes" do
+    if params[:recipe][:public?] == nil
+      params[:recipe][:public?] = false
+    else
+      params[:recipe][:public?] = true
+    end
     recipe = Recipe.create(params[:recipe])
     User.find(session[:user_id]).recipes << recipe
     Cuisine.find_or_create_by(params[:cuisine]).recipes << recipe

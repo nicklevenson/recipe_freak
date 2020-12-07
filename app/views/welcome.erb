@@ -8,7 +8,7 @@
 
 
 <%@recipes.each do |recipe| %>
-
+<%if recipe.public? == true%>
   <a href="/recipes/<%=recipe.id%>">
   <h4><%=recipe.name.titleize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.titleize%><%end%>
@@ -27,5 +27,5 @@
     </form>
   <%end%>
   </h4>
- 
+ <%end%>
 <%end%>
