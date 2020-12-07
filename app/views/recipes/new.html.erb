@@ -10,16 +10,22 @@
   <br> 
 
   <label>Ingredients:</label><br>
-  <input type="number" step="0.1" name="ingredient[][amount]" required="true" placeholder="3">
-  <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
-  <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name"><br>
+  <div id='ingredient1'>
+    <input type="number" step="0.1" name="ingredient[][amount]" required="true" placeholder="3">
+    <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
+    <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name">
+    <input type="button" onclick="deleteIngredient('ingredient1');" value="Delete Ingredient" style="display: inline-block;">
+  </div>
   <div id="newIngredient"></div>
   <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
   
   <br><br>
 
   <label>Steps:</label><br>
-  <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot"><br>
+  <div id='step1'>
+    <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot">
+    <input type="button" onclick="deleteStep('step1');" value="Delete Step" style="display: inline-block;">
+  </div>
   <div id="newStep"></div>
   <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
   <br><br><br>
@@ -29,13 +35,24 @@
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><br>";
+	txtNewInputBox.innerHTML = "<div id='newIG'><input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'><input type='button' onclick='deleteIngredient(\"newIG\");' value='Delete Ingredient' style='display: inline-block;'></div>";
 	document.getElementById("newIngredient").appendChild(txtNewInputBox);
 }
 
 function createNewStep() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><br>";
+	txtNewInputBox.innerHTML = "<div id='newS'><input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><input type='button' onclick='deleteStep(\"newS\");' value='Delete Step' style='display: inline-block;'></div>";
 	document.getElementById("newStep").appendChild(txtNewInputBox);
+}
+
+function deleteIngredient(id) {
+      var ingredient = document.getElementById(id);
+      ingredient.remove()
+     
+}
+function deleteStep(id) {
+      var step = document.getElementById(id);
+      step.remove()
+     
 }
 </script>
