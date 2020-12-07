@@ -13,7 +13,6 @@ class RecipesController < ApplicationController
       @error = "You must log in or sign up to make recipes."
       erb :'/sessions/new.html'
     end
-
   end
 
   # POST: /recipes
@@ -45,6 +44,11 @@ class RecipesController < ApplicationController
 
   # PATCH: /recipes/5
   patch "/recipes/:id" do
+    if params[:recipe][:public?] == nil
+      params[:recipe][:public?] = false
+    else
+      params[:recipe][:public?] = true
+    end
     recipe = Recipe.find(params[:id])
     recipe.update(params[:recipe])
 
@@ -69,7 +73,6 @@ class RecipesController < ApplicationController
     else
       redirect "/recipes"
     end
-  
   end
 
   post "/recipes/like" do

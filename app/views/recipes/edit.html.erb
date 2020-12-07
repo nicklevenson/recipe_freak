@@ -38,6 +38,11 @@
 
 
   <br><br><br>
+  <% if @recipe.public? == true%>
+  Keep Public: <input type="checkbox" name="recipe[public?]" checked="true">
+  <% else %>
+  Make Public: <input type="checkbox" name="recipe[public?]">
+  <%end%>
   <input type="submit" value="Make Edits">
 </form>
 
