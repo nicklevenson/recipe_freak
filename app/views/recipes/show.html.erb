@@ -17,19 +17,19 @@
   <% if @like_error %>
     <%=@like_error%>
   <%end%>
-
-<h2><%=@recipe.cuisine.name.titleize%></h2>
-<h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
-<br>
-<h4>Serving Size: <%=@recipe.serving_size%></h4>
-
 <%if @recipe.user.id == session[:user_id]%>
+<%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
   <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
   <form action="/recipes/<%=@recipe.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Recipe">
   </form>
 <%end%>
+<h2><%=@recipe.cuisine.name.titleize%></h2>
+<h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
+<br>
+<h3>Serving Size: <%=@recipe.serving_size%></h3>
+
 
 <h3>Ingredients:</h3>
 <ol>

@@ -8,6 +8,7 @@
   <h4><%=recipe.name.capitalize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
   <%if recipe.user %> - <%=recipe.user.username%> <%end%>
+  <%if recipe.public? %> - (Published) <%else%> - (Not Published) <%end%>
   </h4></a>
 <%end%>
 
