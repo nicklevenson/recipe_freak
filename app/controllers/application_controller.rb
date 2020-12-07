@@ -14,6 +14,27 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  post "/sort" do
+    if params[:sort] == "recent"
+      @last = "Recent-Old"
+      @recipes = Recipe.all
+      erb :welcome
+    elsif params[:sort] == "popular"
+      @recipes = Recipe.all.sort_by{|recipe| recipe.likes.count}
+      @last = "Popular"
+      erb :welcome
+    elsif Cuisine.all.collect{|cuisine| cuisine.name}.include?(params[:sort])
+      @last = params[:sort]
+      @recipes = Recipe.all.select{|recipe| recipe.cuisine.name == params[:sort]}
+      erb :welcome
+    elsif params[:sort] == "name"
+      @last = "Alphabetical"
+      @recipes = Recipe.all.sort_by{|recipe| recipe.name}.reverse
+      erb :welcome
+    end
+
+  end
+
   helpers do
     def logged_in?
       !!session[:user_id]

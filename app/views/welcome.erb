@@ -5,9 +5,22 @@
   <% if @like_error %>
     <%=@like_error%>
   <%end%>
+<h4>Filter:</h4>
+<form action="/sort" method="post">
+  <select name="sort" value="filter" onchange='if(this.value != 0) { this.form.submit(); }'>
+    <option disabled selected value><%=@last%></option>
+    <option value="recent">Recent-Old</option>
+    <option value="popular">Popular</option>
+    <option value="name">Alphabetical</option>
+    <optgroup label="By Cuisine" value="cuisine">
+      <%@recipes.each do |recipe|%>
+        <option value="<%=recipe.cuisine.name%>"><%=recipe.cuisine.name%></option>
+      <%end%>
+    </optgroup>
+  </select>
+</form>
 
-
-<%@recipes.each do |recipe| %>
+<%@recipes.reverse.each do |recipe| %>
 <%if recipe.public? == true%>
   <a href="/recipes/<%=recipe.id%>">
   <h4><%=recipe.name.titleize%> 
