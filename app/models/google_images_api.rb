@@ -14,6 +14,8 @@ class GoogleImagesApi
     request["x-rapidapi-host"] = 'contextualwebsearch-websearch-v1.p.rapidapi.com'
 
     response = http.request(request)
+    json = JSON.parse(response.read_body)["value"][0..5]
+    
 
   end
 
