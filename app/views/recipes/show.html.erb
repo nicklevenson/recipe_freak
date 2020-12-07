@@ -19,6 +19,7 @@
 <h2><%=@recipe.cuisine.name.titleize%></h2>
 <h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
 <br>
+<h4>Serving Size: <%=@recipe.serving_size%></h4>
 
 <%if @recipe.user.id == session[:user_id]%>
   <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
