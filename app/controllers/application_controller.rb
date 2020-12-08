@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     @recipes = Recipe.all
+    @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
     erb :welcome
   end
 
@@ -18,19 +19,25 @@ class ApplicationController < Sinatra::Base
     if params[:sort] == "recent"
       @last = "Recent-Old"
       @recipes = Recipe.all
+      @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
       erb :welcome
     elsif params[:sort] == "popular"
       @recipes = Recipe.all.sort_by{|recipe| recipe.likes.count}
+      @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
       @last = "Popular"
       erb :welcome
     elsif Cuisine.all.collect{|cuisine| cuisine.name}.include?(params[:sort])
       @last = params[:sort]
       @recipes = Recipe.all.select{|recipe| recipe.cuisine.name == params[:sort]}
+      @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
       erb :welcome
     elsif params[:sort] == "name"
       @last = "Alphabetical"
+      @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
       @recipes = Recipe.all.sort_by{|recipe| recipe.name}.reverse
       erb :welcome
+    elsif params[:sort][:keyword] 
+      binding.pry
     end
 
   end

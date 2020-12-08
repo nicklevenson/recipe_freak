@@ -5,6 +5,10 @@
   <% if @like_error %>
     <%=@like_error%>
   <%end%>
+<form action="/sort" method="post">
+  <input type="text" name="sort[keyword]" placeholder="Search by keyword, recipe, ingredient, cuisine, username">
+  <input type="submit" value="Search">
+</form>
 <h4>Filter:</h4>
 <form action="/sort" method="post">
   <select name="sort" value="filter" onchange='if(this.value != 0) { this.form.submit(); }'>
@@ -13,8 +17,8 @@
     <option value="popular">Popular</option>
     <option value="name">Alphabetical</option>
     <optgroup label="By Cuisine" value="cuisine">
-      <%@recipes.each do |recipe|%>
-        <option value="<%=recipe.cuisine.name%>"><%=recipe.cuisine.name%></option>
+      <%@cuisines.each do |cuisine|%>
+        <option value="<%=cuisine%>"><%=cuisine%></option>
       <%end%>
     </optgroup>
   </select>
