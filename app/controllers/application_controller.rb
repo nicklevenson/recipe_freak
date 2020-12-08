@@ -37,7 +37,13 @@ class ApplicationController < Sinatra::Base
       @recipes = Recipe.all.sort_by{|recipe| recipe.name}.reverse
       erb :welcome
     elsif params[:sort][:keyword] 
-      binding.pry
+      by_name = Recipe.all.select{|recipe|recipe.name.downcase.include?(params[:sort][:keyword].downcase)}.select{|recipe|recipe.public? == true}
+      by_cuisine = Recipe.all.select{|recipe|recipe.cuisine.name.titleize.include?(params[:sort][:keyword].titleize)}.select{|recipe|recipe.public? == true}
+      by_ingredients = Ingredient.all.select{|ingredient| ingredient.name.downcase.include?(params[:sort][:keyword].downcase)}.collect{|ingredient| ingredient.recipe}.select{|recipe|recipe.public? == true}
+      by_username = Recipe.all.select{|recipe| recipe.user.username.downcase.include?(params[:sort][:keyword].downcase)}.select{|recipe|recipe.public? == true}
+      @recipes = (by_name + by_cuisine + by_ingredients + by_username).uniq
+      @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
+      erb :welcome
     end
 
   end
