@@ -7,7 +7,7 @@ recipe.cook_time = "3 mins"
 recipe.ingredients << Ingredient.create({name: "noodles", amount: 1, unit_type: "Cup"})
 recipe.steps << Step.create({action: "Make the spaget"})
 
-10.times do
+20.times do
   user1 = User.create(email: Faker::Internet.unique.email , username:  Faker::Name.unique.name , password: Faker::Color.unique.hex_color)
   recipe1 = Recipe.create(name: Faker::Food.dish, cook_time: "#{rand(50)} minutes", serving_size: rand(10), public?:true)
   user1.recipes << recipe1

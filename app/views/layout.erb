@@ -14,10 +14,8 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <h1>Recipe Freak</h1>
-      <div class="topnav">
-        <a href="/">Home</a>
+    <div class="topnav">
+        <a id="home link" href="/">Recipe Freak</a>
         <a href="/users/home">My Recipes</a>
         <a href="/recipes/new">New Recipe</a>
         <a href="/users/like">Liked Recipes</a>
@@ -29,12 +27,15 @@
         <%else%>
           <form action="/logout" method="post" style="display: inline-block;">
             <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Log Out" style="border: none; background-color: white; cursor: pointer;">
+            <input type="submit" value="Log Out">
           </form>
         <%end%>
+    
       </div>
+    <div class="wrapper">
+      <div class="yield">
         <%= yield %>
-
+      </div>
       <footer class="branding">
         <small>&copy; 2020 <strong>RecipeFreak</strong></small>
       </footer>
