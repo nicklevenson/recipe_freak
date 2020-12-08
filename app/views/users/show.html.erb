@@ -2,16 +2,18 @@
 <h1>Hello <%=current_user.username%>!</h1>
 <br>
 <h3>My Recipes:</h3>
-
-<%@recipes.each do |recipe| %>
-  <a href="/recipes/<%=recipe.id%>">
-  <h4><%=recipe.name.capitalize%> 
-  <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
-  <%if recipe.user %> - <%=recipe.user.username%> <%end%>
-  <%if recipe.public? %> - (Published) <%else%> - (Not Published) <%end%>
-  </h4></a>
-<%end%>
-
+<div class="list">
+  <%@recipes.each do |recipe| %>
+    <div class="listItem">
+      <a href="/recipes/<%=recipe.id%>">
+      <h4><%=recipe.name.capitalize%> 
+      <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
+      <%if recipe.user %> - <%=recipe.user.username%> <%end%>
+      <%if recipe.public? %> - (Published) <%else%> - (Not Published) <%end%>
+      </h4></a>
+    </div>
+  <%end%>
+</div>
 
 
 <% else %>

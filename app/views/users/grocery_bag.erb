@@ -1,31 +1,31 @@
 <% if logged_in? %>
 
 <h1>My Grocery List:</h1>
-<br>
-<%@recipes.each do |recipe| %>
-  <a href="/recipes/<%=recipe.id%>">
-  <h4><%=recipe.name.capitalize%> 
-  <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
-  <%if recipe.user %> - <%=recipe.user.username%> <%end%>
-  <form action="/users/bag" method="post" style="display: inline-block;">
-      <input type="hidden" name="_method" value="delete">
-      <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-      <input type="hidden" name="destination" value="/users/bag">
-      </a>
-      <input type="submit" value="Remove From Grocery List" style="cursor: pointer;">
-  </form>
-  </h4>
 
-  <h4>Ingredients To Get</h4>
-  <ol>
-    <%recipe.ingredients.each do |ingredient|%>
-      <li>- <%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
-    <%end%>
-      
-  </ol>
-  <br><br>
-<%end%>
+<div class="list">
+  <%@recipes.each do |recipe| %>
+    <a href="/recipes/<%=recipe.id%>">
+    <h4><%=recipe.name.capitalize%> 
+    <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
+    <%if recipe.user %> - <%=recipe.user.username%> <%end%>
+    <form action="/users/bag" method="post" style="display: inline-block;">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+        <input type="hidden" name="destination" value="/users/bag">
+        </a>
+        <input type="submit" value="Remove From Grocery List" style="cursor: pointer;">
+    </form>
+    </h4>
 
+    <h4>Ingredients To Get</h4>
+    <ol>
+      <%recipe.ingredients.each do |ingredient|%>
+        <li>- <%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
+      <%end%>
+    </ol>
+    <br>
+  <%end%>
+</div>
 
 
 <% else %>
