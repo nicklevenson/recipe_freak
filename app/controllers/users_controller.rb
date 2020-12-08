@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         like = Like.new
         recipe.likes << like
         user.likes << like
-        redirect '/'
+        redirect params[:destination]
       end
     else
       @error = "Please log in or sign up to like recipes"
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     recipe = Recipe.find(params[:recipe_id])
     like = Like.find_by(user_id: user.id, recipe_id: recipe.id)
     like.destroy
-    redirect '/'
+    redirect params[:destination]
   end
 
   get "/users/bag" do

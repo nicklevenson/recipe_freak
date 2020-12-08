@@ -74,30 +74,4 @@ class RecipesController < ApplicationController
       redirect "/recipes"
     end
   end
-
-  post "/recipes/like" do
-    if logged_in? 
-      user = User.find(session[:user_id])
-      recipe = Recipe.find(params[:recipe_id])
-      if (user.likes.select{|like|like.recipe.id == recipe.id}) == []
-        like = Like.new
-        recipe.likes << like
-        user.likes << like
-        redirect "/recipes/#{recipe.id}"
-      end
-    else
-      recipe = Recipe.find(params[:recipe_id])
-      @recipe = recipe
-      @like_error = "Sign in or sign up to like recipes!"
-      erb :'recipes/show.html'
-    end
-  end
-
-  delete '/recipes/like' do
-    user = User.find(session[:user_id])
-    recipe = Recipe.find(params[:recipe_id])
-    like = Like.find_by(user_id: user.id, recipe_id: recipe.id)
-    like.destroy
-    redirect "/recipes/#{recipe.id}"
-  end
 end

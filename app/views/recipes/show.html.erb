@@ -2,14 +2,16 @@
 
 <h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%>
  <%if @recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
-    <form action="/recipes/like" method="post" style="display: inline-block;">
+    <form action="/users/like" method="post" style="display: inline-block;">
       <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
       <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
       <input type="submit" value="Unlike" style="cursor: pointer;">
     </form>
   <%else%>
-    <form action="/recipes/like" method="post" style="display: inline-block;">
+    <form action="/users/like" method="post" style="display: inline-block;">
       <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+      <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
       <input type="submit" value="Like Recipe" style="cursor: pointer;">
     </form>
   <%end%>
@@ -29,32 +31,29 @@
     </form>
   <%end%>
 </h1>
-  <% if @like_error %>
-    <%=@like_error%>
-  <%end%>
+
 <%if @recipe.user.id == session[:user_id]%>
-<%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
+  <%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
+ 
   <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
   <form action="/recipes/<%=@recipe.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Recipe">
   </form>
 <%end%>
+
 <h2><%=@recipe.cuisine.name.titleize%></h2>
 <h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
 <br>
-<h3>Serving Size: <%=@recipe.serving_size%></h3>
 
+<h3>Serving Size: <%=@recipe.serving_size%></h3>
 
 <h3>Ingredients:</h3>
 <ol>
-  
   <%@recipe.ingredients.each do |ingredient|%>
     <li><%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
-    
   <%end%>
 </ol>
-
 <br><br>
 
 <h3>Instructions:</h3>
@@ -63,6 +62,8 @@
     <li>-<%=step.action%></li>
   <%end%>
 </ol>
+
+
 <%else%>
   <h2>Private Recipe</h2>
 <%end%>
