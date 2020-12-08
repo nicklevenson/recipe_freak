@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    @recipes = Recipe.all
+    @recipes = Recipe.all.sort_by{|recipe| recipe.likes.count}
     @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
     erb :welcome
   end
