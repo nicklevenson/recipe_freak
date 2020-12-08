@@ -1,5 +1,5 @@
 <% if logged_in? && @recipe.user.id == session[:user_id]%>
-<h2>Edit Recipe</h2>
+<h1>Edit Recipe</h1>
 <form action="/recipes/<%=@recipe.id%>" method="post" class="recipe">
 <input type="hidden" name="_method" value="patch">
 

@@ -1,6 +1,6 @@
 <% if logged_in? %>
 
-<h3>My Grocery List:</h3>
+<h1>My Grocery List:</h1>
 <br>
 <%@recipes.each do |recipe| %>
   <a href="/recipes/<%=recipe.id%>">

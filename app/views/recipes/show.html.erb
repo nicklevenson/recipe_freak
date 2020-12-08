@@ -1,6 +1,6 @@
 <%if @recipe.public? == true || (@recipe.public? == false && @recipe.user.id == session[:user_id])%>
 
-<h2><%=@recipe.name.titleize%> by <%=@recipe.user.username%><br>
+<h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%><br>
  <%if @recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
     <form action="/users/like" method="post" style="display: inline-block;">
       <input type="hidden" name="_method" value="delete">
