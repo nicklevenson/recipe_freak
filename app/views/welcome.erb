@@ -30,6 +30,7 @@
   <h4><%=recipe.name.titleize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.titleize%><%end%>
   <%if recipe.user %> - <%=recipe.user.username%> <%end%></a>
+  - <%=recipe.likes.count%> likes
 
   <%if recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
     <form action="/users/like" method="post" style="display: inline-block;">
