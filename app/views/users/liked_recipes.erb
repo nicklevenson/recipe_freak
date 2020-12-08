@@ -7,7 +7,22 @@
   <h4><%=recipe.name.capitalize%> 
   <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
   <%if recipe.user %> - <%=recipe.user.username%> <%end%>
-  </h4></a>
+  </a>
+   <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
+    <form action="/users/bag" method="post" style="display: inline-block;">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+      <input type="hidden" name="destination" value="/users/like">
+      <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
+    </form>
+  <%else%>
+    <form action="/users/bag" method="post" style="display: inline-block;">
+      <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+      <input type="hidden" name="destination" value="/users/like">
+      <input type="submit" value="Add to Grocery List" style="cursor: pointer;">
+    </form>
+  <%end%>
+  </h4>
 <%end%>
 
 

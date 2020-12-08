@@ -48,12 +48,14 @@
    <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
     <form action="/users/bag" method="post" style="display: inline-block;">
       <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="destination" value="/">
       <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-      <input type="submit" value="Add To Grocery List" style="cursor: pointer;">
+      <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
     </form>
   <%else%>
     <form action="/users/bag" method="post" style="display: inline-block;">
       <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+      <input type="hidden" name="destination" value="/">
       <input type="submit" value="Add to Grocery List" style="cursor: pointer;">
     </form>
   <%end%>

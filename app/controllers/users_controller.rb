@@ -61,13 +61,38 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
-  get '/users/bag' do
+  get "/users/bag" do
     if logged_in?
-      @recipes = User.find(session[:user_id]).likes.collect{|like| Recipe.find(like.recipe_id)}
+      @recipes = User.find(session[:user_id]).bags.collect{|bag| Recipe.find(bag.recipe_id)}
       erb :'users/grocery_bag'
     else
       @error = "Please log in or sign up to view this content"
       erb :'/sessions/new.html'
     end
+  end
+
+  post "/users/bag" do
+    if logged_in? 
+      user = User.find(session[:user_id])
+      recipe = Recipe.find(params[:recipe_id])
+      if (user.bags.select{|bag|bag.recipe.id == recipe.id}) == []
+        bag = Bag.new
+        recipe.bags << bag
+        user.bags << bag
+        redirect params[:destination]
+      end
+    else
+      @recipes = Recipe.all.sort_by{|recipe| recipe.likes.count}
+      @like_error = "Sign in or sign up to do this!"
+      erb :welcome
+    end
+  end
+
+  delete '/users/bag' do
+    user = User.find(session[:user_id])
+    recipe = Recipe.find(params[:recipe_id])
+    bag = Bag.find_by(user_id: user.id, recipe_id: recipe.id)
+    bag.destroy
+    redirect params[:destination]
   end
 end
