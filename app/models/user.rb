@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   has_many :recipes, :dependent => :destroy
   has_many :likes, :dependent => :destroy
+  has_many :bags, :dependent => :destroy
 end
