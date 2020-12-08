@@ -47,9 +47,8 @@ class UsersController < ApplicationController
         redirect '/'
       end
     else
-      @recipes = Recipe.all
-      @like_error = "Sign in or sign up to like recipes!"
-      erb :welcome
+      @error = "Please log in or sign up to like recipes"
+      erb :'/sessions/new.html'
     end
   end
 
@@ -66,7 +65,7 @@ class UsersController < ApplicationController
       @recipes = User.find(session[:user_id]).bags.collect{|bag| Recipe.find(bag.recipe_id)}
       erb :'users/grocery_bag'
     else
-      @error = "Please log in or sign up to view this content"
+      @error = "Please log in or sign up to add to grocery list"
       erb :'/sessions/new.html'
     end
   end
@@ -82,9 +81,8 @@ class UsersController < ApplicationController
         redirect params[:destination]
       end
     else
-      @recipes = Recipe.all.sort_by{|recipe| recipe.likes.count}
-      @like_error = "Sign in or sign up to do this!"
-      erb :welcome
+      @error = "Please log in or sign up to add to grocery list"
+      erb :'/sessions/new.html'
     end
   end
 

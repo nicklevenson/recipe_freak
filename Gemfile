@@ -12,10 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'faker'
-gem 'uri'
-gem 'httparty'
-gem 'openssl'
-gem 'net-http'
+gem 'sinatra-flash'
 
 
 group :test do

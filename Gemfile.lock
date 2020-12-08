@@ -43,25 +43,16 @@ GEM
     eventmachine (1.2.7)
     faker (2.15.1)
       i18n (>= 1.6, < 2)
-    httparty (0.18.1)
-      mime-types (~> 3.0)
-      multi_xml (>= 0.5.2)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
-    mime-types (3.3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2020.1104)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
-    multi_xml (0.6.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    net-http (0.1.0)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    openssl (2.2.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -106,6 +97,8 @@ GEM
     sinatra-activerecord (2.0.21)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     sqlite3 (1.4.2)
     thin (1.8.0)
       daemons (~> 1.0, >= 1.0.9)
@@ -120,7 +113,6 @@ GEM
       sinatra (>= 1.2.1)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
-    uri (0.10.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -133,9 +125,6 @@ DEPENDENCIES
   capybara
   database_cleaner!
   faker
-  httparty
-  net-http
-  openssl
   pry
   rack-test
   rake
@@ -144,10 +133,10 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
+  sinatra-flash
   sqlite3
   thin
   tux
-  uri
 
 BUNDLED WITH
    2.2.0.rc.2

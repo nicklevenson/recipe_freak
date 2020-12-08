@@ -1,7 +1,7 @@
 
 ENV['SINATRA_ENV'] ||= 'development'
 require 'bundler/setup'
-require 'net/http'
+
 Bundler.require
 
 require_all 'app'
@@ -16,6 +16,7 @@ configure :development do
 end
 
 use Rack::MethodOverride
+
 require './app/controllers/application_controller'
 
 
