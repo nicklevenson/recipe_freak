@@ -105,17 +105,19 @@
   }
 
   .list a {
-    padding: 5px 10px 5px 10px;
+    padding: 5px;
     color: rgb(0, 0, 0) !important;
   }
 
   .listItem {
-    background-color: rgb(203, 233, 243);
-    width: 250px;
+    background-color: rgb(223, 230, 245);
+    box-shadow: 1px 1px 5px grey;
+    width: 220px;
     height: 180px;
     display: inline-block;
-    border-radius: 25%;
+    border-radius: 10%;
     margin: 4px;
+    overflow: scroll;
   }
 
   .recipe {

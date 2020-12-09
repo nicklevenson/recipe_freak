@@ -40,7 +40,7 @@
           </h5> 
         </a>
             <br> <%=recipe.likes.count%> likes
-            <br>
+            
             <%if recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
               <form action="/users/like" method="post" style="display: inline-block;">
                 <input type="hidden" name="_method" value="delete">
@@ -53,7 +53,7 @@
                 <input type="submit" value="Like" width="45" style="cursor: pointer;">
               </form>
             <%end%>
-
+          <br><br>
             <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
               <form action="/users/bag" method="post" style="display: inline-block;">
                 <input type="hidden" name="_method" value="delete">
