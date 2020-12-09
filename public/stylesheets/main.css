@@ -30,11 +30,20 @@
     background-color: black;
     position: fixed;
     width: 100%;
-    height: 50px;
+    height: 100px;
     overflow: hidden;
     top:0;
     text-align: center;
     text-justify: center;
+  }
+
+  #homelink {
+    width: 100%;
+    font-size: 40px;
+    letter-spacing: 10px;
+    padding-bottom: 10px;
+    display: block;
+    height: min-content;
   }
 
   .topnav a{

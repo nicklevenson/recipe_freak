@@ -6,11 +6,12 @@
   <%@recipes.each do |recipe| %>
     <div class="listItem">
       <a href="/recipes/<%=recipe.id%>">
-      <h4><%=recipe.name.capitalize%> 
-      <%if recipe.cuisine %> - <%=recipe.cuisine.name.capitalize%><%end%>
-      <%if recipe.user %> - <%=recipe.user.username%> <%end%>
-      <%if recipe.public? %> - (Published) <%else%> - (Not Published) <%end%>
-      </h4></a>
+        <h4><%=recipe.name.capitalize%> </h4>
+        <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
+        <%if recipe.public? %> <br> (Published) <%else%> <br> (Not Published) <%end%>
+      </a>
+      <br><br>
+        <a href="/recipes/<%=recipe.id%>/edit">Edit Recipe</a></h4>
     </div>
   <%end%>
 </div>

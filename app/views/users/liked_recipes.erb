@@ -5,12 +5,12 @@
   <%@recipes.each do |recipe| %>
     <div class="listItem">
       <a href="/recipes/<%=recipe.id%>">
-      <h4><%=recipe.name.capitalize%> </h4>
-      <h5>
-        <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
-        <%if recipe.user %>  <br>  <%=recipe.user.username%> <%end%>
-        </a>
-      </h5> 
+        <h4><%=recipe.name.capitalize%> </h4>
+        <h5>
+          <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
+          <%if recipe.user %>  <br>  <%=recipe.user.username%> <%end%>
+        </h5> 
+       </a>
         <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
           <form action="/users/bag" method="post" style="display: inline-block;">
             <input type="hidden" name="_method" value="delete">
