@@ -1,42 +1,42 @@
-<% if logged_in? %>
-
-<h1>Liked Recipes:</h1>
-<div class="list">
-  <%@recipes.each do |recipe| %>
-    <div class="listItem">
-      <a href="/recipes/<%=recipe.id%>">
-        <h4><%=recipe.name.capitalize%> </h4>
-        <h5>
-          <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
-          <%if recipe.user %>  <br>  <%=recipe.user.username%> <%end%>
-        </h5> 
-       </a>
-        <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
-          <form action="/users/bag" method="post" style="display: inline-block;">
+<div class="editForm">
+  <% if logged_in? %>
+  <h1>Liked Recipes:</h1>
+  <div class="list">
+    <%@recipes.each do |recipe| %>
+      <div class="listItem">
+        <a href="/recipes/<%=recipe.id%>">
+          <h4><%=recipe.name.capitalize%> </h4>
+          <h5>
+            <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
+            <%if recipe.user %>  <br>  <%=recipe.user.username%> <%end%>
+          </h5> 
+        </a>
+          <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
+            <form action="/users/bag" method="post" style="display: inline-block;">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+              <input type="hidden" name="destination" value="/users/like">
+              <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
+            </form>
+          <%else%>
+            <form action="/users/bag" method="post" style="display: inline-block;">
+              <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+              <input type="hidden" name="destination" value="/users/like">
+              <input type="submit" value="Add to Grocery List" style="cursor: pointer;">
+            </form>
+          <%end%>
+          <br><br>
+          <form action="/users/like" method="post" style="display: inline-block;">
+            <input type="hidden" name="destination" value="/users/like">
             <input type="hidden" name="_method" value="delete">
             <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-            <input type="hidden" name="destination" value="/users/like">
-            <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
+            <input type="submit" value="Unlike" style="cursor: pointer;">
           </form>
-        <%else%>
-          <form action="/users/bag" method="post" style="display: inline-block;">
-            <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-            <input type="hidden" name="destination" value="/users/like">
-            <input type="submit" value="Add to Grocery List" style="cursor: pointer;">
-          </form>
-        <%end%>
-        <br><br>
-         <form action="/users/like" method="post" style="display: inline-block;">
-          <input type="hidden" name="destination" value="/users/like">
-          <input type="hidden" name="_method" value="delete">
-          <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-          <input type="submit" value="Unlike" style="cursor: pointer;">
-        </form>
-    </div>
-  <%end%>
+      </div>
+    <%end%>
+  </div>
+
 </div>
-
-
 <% else %>
 <h3>Please <a href="/login">Log In</a> to view this page</h3>
 <%end%>

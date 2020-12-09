@@ -1,12 +1,12 @@
 
 
-<h1>Browse Recipes</h1>
-
 <% if @like_error %>
   <%=@like_error%>
 <%end%>
 
+
 <div id="searchContainer">
+<h1>Browse Recipes</h1>
   <form action="/sort" method="post" id="searchby">
     <input id="searchbar" type="text" name="sort[keyword]" placeholder="Search by keyword, recipe, ingredient, cuisine, username">
     <input type="submit" value="Search">
@@ -33,8 +33,9 @@
     <%if recipe.public? == true%>
       <div class="listItem">
         <a href="/recipes/<%=recipe.id%>">
-          <h4><%=recipe.name.titleize%></h4>
-          <hr>
+          <h3><%=recipe.name.titleize%></h3>
+         
+          <br>
           <h5>
             Cuisine: <%if recipe.cuisine %> <%=recipe.cuisine.name.titleize%><%end%><br>
             Cook Time: <%if recipe.cook_time %> <%=recipe.cook_time%> <%end%><br>
