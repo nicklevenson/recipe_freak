@@ -149,6 +149,7 @@
   }
 
   .listItem {
+    white-space: nowrap;
     color: grey;
     background-color: rgb(254, 255, 254);
     box-shadow: 1px 1px 5px grey;
@@ -181,12 +182,14 @@
   }
 
   .editForm {
-    max-width: 75%;
+    max-width: 85%;
+    width: 1000px;
     background-color: white;
     box-shadow: 1px 1px 5px grey;
     margin: 50px auto;
     padding: 30px;
     border-radius: 3%;
+
   }
 
   h2 {
@@ -242,10 +245,10 @@
 
 @media screen and (max-width: 600px) {
   .wrapper {
-    -moz-box-shadow: none;
+    /* -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    width: auto;
+    width: auto; */
   }
 
   .content, .sidebar {
