@@ -18,6 +18,7 @@
   * a{
     text-decoration: none;
   }
+
   body {
     height: 100%;
     background-color: rgb(255, 255, 242);
@@ -30,7 +31,7 @@
     background-color: black;
     position: fixed;
     width: 100%;
-    height: 100px;
+    height: 200px;
     overflow: hidden;
     top:0;
     text-align: center;
@@ -49,7 +50,7 @@
   .topnav a{
     text-align: center;
     display: inline-block;
-    padding-top: 15px;
+    padding-top: 50px;
     margin: 0px 20px;
     height: inherit;
     color: white;
@@ -109,8 +110,15 @@
     text-align: right;
     padding-right: 30px;
   }
+  #searchby input{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
   #searchbar {
     width: 65%;
+    border: solid thin!important;
+    cursor: text !important;
   }
 
   .list a {
@@ -135,6 +143,14 @@
     border-top: thin solid #243588;
     width: 95%;
     margin: auto;
+  }
+
+  .listItem input {
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    border: none;
   }
 
   .recipe {
