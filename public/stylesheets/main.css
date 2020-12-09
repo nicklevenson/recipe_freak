@@ -99,7 +99,6 @@
     height: 50px;
     display: grid;
     grid-template: 50px/ repeat(2, 50%);
-    padding: 0px;
     background-color: white;
     grid-row: 1;
     position: fixed;
@@ -182,14 +181,14 @@
   }
 
   .editForm {
-    max-width: 85%;
-    width: 1000px;
+    max-width: 75%;
+    width: 700px;
     background-color: white;
     box-shadow: 1px 1px 5px grey;
     margin: 50px auto;
     padding: 30px;
     border-radius: 3%;
-
+    overflow: scroll;
   }
 
   h2 {
@@ -235,11 +234,12 @@
 
   footer.branding {
     grid-area: 4 / 1 / 5 / 6;
-    border-top: 2px solid #ccc;
-    width: 60%;
+    /* border-top: 2px solid #ccc; */
+    width: 100%;
     justify-self: center;
     align-self: flex-end;
     text-align: center;
+    background-color: white;
   }
 }
 

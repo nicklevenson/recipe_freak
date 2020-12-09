@@ -1,4 +1,4 @@
-<div class="editForm">
+
   <% if logged_in? %>
   <h1>Hello <%=current_user.username%>!</h1>
   <h3>My Recipes:</h3>
@@ -15,7 +15,7 @@
       </div>
     <%end%>
   </div>
-</div>
+
 <% else %>
 <h3>Please <a href="/login">Log In</a> to view this page</h3>
 <%end%>
