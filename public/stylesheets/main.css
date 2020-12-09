@@ -119,7 +119,7 @@
   }
 
   .listItem {
-    background-color: rgb(223, 230, 245);
+    background-color: rgb(250, 215, 215);
     box-shadow: 1px 1px 5px grey;
     width: 220px;
     height: 180px;
@@ -131,6 +131,13 @@
 
   .recipe {
     text-align: left;
+  }
+
+  .editForm {
+    background-color: rgb(250, 215, 215);
+    box-shadow: 1px 1px 5px grey;
+    padding: 30px;
+    border-radius: 10%;
   }
 
   h2 {

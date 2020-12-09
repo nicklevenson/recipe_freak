@@ -1,51 +1,57 @@
-<% if logged_in? && @recipe.user.id == session[:user_id]%>
-<h1>Edit Recipe</h1>
-<form action="/recipes/<%=@recipe.id%>" method="post" class="recipe">
-<input type="hidden" name="_method" value="patch">
+<div class="editForm">
+  <% if logged_in? && @recipe.user.id == session[:user_id]%>
+  <h1>Edit Recipe</h1>
+    <form action="/recipes/<%=@recipe.id%>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Recipe">
+    </form>
 
-  <label>Recipe Details:</label><br>
-  <input type="text" name="recipe[name]" required="true" value="<%=@recipe.name%>"><br>
-  <input type="text" name="recipe[cook_time]" required="true" value="<%=@recipe.cook_time%>"><br>
-  <input type="text" name="cuisine[name]" required="true" value="<%=@recipe.cuisine.name%>"><br>
-  <input type="number" name="recipe[serving_size]" required="true" value="<%=@recipe.serving_size%>"><br>
+  <form action="/recipes/<%=@recipe.id%>" method="post" class="recipe">
+  <input type="hidden" name="_method" value="patch">
 
-  <br> 
+    <label>Recipe Details:</label><br>
+    <input type="text" name="recipe[name]" required="true" value="<%=@recipe.name%>"><br>
+    <input type="text" name="recipe[cook_time]" required="true" value="<%=@recipe.cook_time%>"><br>
+    <input type="text" name="cuisine[name]" required="true" value="<%=@recipe.cuisine.name%>"><br>
+    <input type="number" name="recipe[serving_size]" required="true" value="<%=@recipe.serving_size%>"><br>
 
-  <label>Ingredients:</label><br>
-  <%@recipe.ingredients.each do |ingredient|%>
-    <div id='ingredient<%=ingredient.id%>'>
-      <input type="number" step='0.1' name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
-      <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
-      <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>">
-      <input type="button" onclick="deleteIngredient('ingredient<%=ingredient.id%>');" value="Delete Ingredient" style="display: inline-block;">
-    </div>
-  <% end %>
+    <br> 
 
- <div id="newIngredient"></div>
-  <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
-  
-  <br><br>
+    <label>Ingredients:</label><br>
+    <%@recipe.ingredients.each do |ingredient|%>
+      <div id='ingredient<%=ingredient.id%>'>
+        <input type="number" step='0.1' name="ingredient[][amount]" required="true" value="<%=ingredient.amount%>">
+        <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
+        <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>">
+        <input type="button" onclick="deleteIngredient('ingredient<%=ingredient.id%>');" value="Delete Ingredient" style="display: inline-block;">
+      </div>
+    <% end %>
 
-  <label>Steps:</label><br>
-  <%@recipe.steps.each do |step|%>
-    <div id='step<%=step.id%>'>
-      <input type="text" name="step[][action]" required="true" value="<%=step.action%>">
-       <input type="button" onclick="deleteStep('step<%=step.id%>');" value="Delete Step" style="display: inline-block;">
-    </div>
-  <% end %>
-  <div id="newStep"></div>
-  <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
+  <div id="newIngredient"></div>
+    <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
+    
+    <br><br>
+
+    <label>Steps:</label><br>
+    <%@recipe.steps.each do |step|%>
+      <div id='step<%=step.id%>'>
+        <input type="text" name="step[][action]" required="true" value="<%=step.action%>">
+        <input type="button" onclick="deleteStep('step<%=step.id%>');" value="Delete Step" style="display: inline-block;">
+      </div>
+    <% end %>
+    <div id="newStep"></div>
+    <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
 
 
-  <br><br><br>
-  <% if @recipe.public? == true%>
-  Keep Public: <input type="checkbox" name="recipe[public?]" checked="true">
-  <% else %>
-  Make Public: <input type="checkbox" name="recipe[public?]">
-  <%end%>
-  <input type="submit" value="Make Edits">
-</form>
-
+    <br><br><br>
+    <% if @recipe.public? == true%>
+    Keep Public: <input type="checkbox" name="recipe[public?]" checked="true">
+    <% else %>
+    Make Public: <input type="checkbox" name="recipe[public?]">
+    <%end%>
+    <input type="submit" value="Make Edits">
+  </form>
+</div>
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');

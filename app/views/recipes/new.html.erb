@@ -1,38 +1,39 @@
-<h1>Make A New Recipe</h1>
+<div class="editForm">
+  <h1>Make A New Recipe</h1>
 
-<form action="/recipes" method="post" class="recipe">
+  <form action="/recipes" method="post" class="recipe">
 
-  <label>Recipe Details:</label><br>
-  <input type="text" name="recipe[name]" required="true" placeholder="Recipe Name"><br>
-  <input type="text" name="recipe[cook_time]" required="true" placeholder="Cook Time"><br>
-  <input type="text" name="cuisine[name]" required="true" placeholder="Cuisine"><br>
-  <input type="number" name="recipe[serving_size]" required="true" placeholder="Serving Size"><br>
-  <br> 
+    <label>Recipe Details:</label><br>
+    <input type="text" name="recipe[name]" required="true" placeholder="Recipe Name"><br>
+    <input type="text" name="recipe[cook_time]" required="true" placeholder="Cook Time"><br>
+    <input type="text" name="cuisine[name]" required="true" placeholder="Cuisine"><br>
+    <input type="number" name="recipe[serving_size]" required="true" placeholder="Serving Size"><br>
+    <br> 
 
-  <label>Ingredients:</label><br>
-  <div id='ingredient1'>
-    <input type="number" step="0.1" name="ingredient[][amount]" required="true" placeholder="3">
-    <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
-    <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name">
-    <input type="button" onclick="deleteIngredient('ingredient1');" value="Delete Ingredient" style="display: inline-block;">
-  </div>
-  <div id="newIngredient"></div>
-  <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
-  
-  <br><br>
+    <label>Ingredients:</label><br>
+    <div id='ingredient1'>
+      <input type="number" step="0.1" name="ingredient[][amount]" required="true" placeholder="3">
+      <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
+      <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name">
+      <input type="button" onclick="deleteIngredient('ingredient1');" value="Delete Ingredient" style="display: inline-block;">
+    </div>
+    <div id="newIngredient"></div>
+    <input type="button" id="addIngredient" onclick="createNewIngredient();" value="Add Another Ingredient">
+    
+    <br><br>
 
-  <label>Steps:</label><br>
-  <div id='step1'>
-    <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot">
-    <input type="button" onclick="deleteStep('step1');" value="Delete Step" style="display: inline-block;">
-  </div>
-  <div id="newStep"></div>
-  <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
-  <br><br><br>
-  Public: <input type="checkbox" name="recipe[public?]">
-  <input type="submit" value="Make New Recipe">
-</form>
-
+    <label>Steps:</label><br>
+    <div id='step1'>
+      <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot">
+      <input type="button" onclick="deleteStep('step1');" value="Delete Step" style="display: inline-block;">
+    </div>
+    <div id="newStep"></div>
+    <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
+    <br><br><br>
+    Public: <input type="checkbox" name="recipe[public?]">
+    <input type="submit" value="Make New Recipe">
+  </form>
+</div>
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
