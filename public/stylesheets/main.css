@@ -185,6 +185,12 @@
     margin: 20px;
     padding-top: 20px;
     overflow: scroll;
+    transition: 0.3s ease-in-out;
+  }
+
+  .listItem:hover {
+    box-shadow: 1px 10px 20px grey;
+    width: 250px;
   }
 
   .listItem hr {
@@ -218,6 +224,16 @@
     overflow: scroll;
   }
 
+  .submitButton input, form {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: normal !important;
+    display: inline-block;
+    margin: 10px;
+  }
+
   #userRecipe input{
     background-color: transparent;
     padding: 5px;
@@ -243,8 +259,9 @@
 
   .printButton {
     border: none;
-    background-color: transparent;
+    width: 30px;
     cursor: pointer;
+    background-color: transparent;
   }
 
   h2 {

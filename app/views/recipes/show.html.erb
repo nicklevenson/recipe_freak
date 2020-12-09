@@ -1,50 +1,51 @@
 
 <div class="editForm">
-<%if @recipe.public? == true || (@recipe.public? == false && @recipe.user.id == session[:user_id])%>
+  <%if @recipe.public? == true || (@recipe.public? == false && @recipe.user.id == session[:user_id])%>
 
-<h1><%=@recipe.name.titleize%></h1> 
-<h3>Freak: <%=@recipe.user.username%></h3><br><br>
- <%if @recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
-    <form action="/users/like" method="post" style="display: inline-block;">
-      <input type="hidden" name="_method" value="delete">
-      <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
-      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-      <input type="submit" value="Unlike" style="cursor: pointer;">
-    </form>
-  <%else%>
-    <form action="/users/like" method="post" style="display: inline-block;">
-      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-      <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
-      <input type="submit" value="Like Recipe" style="cursor: pointer;">
-    </form>
-  <%end%>
-
-   <%if @recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
-    <form action="/users/bag" method="post" style="display: inline-block;">
-      <input type="hidden" name="_method" value="delete">
-      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-      <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
-      <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
-    </form>
-  <%else%>
-    <form action="/users/bag" method="post" style="display: inline-block;">
-      <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
-      <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
-      <input type="submit" value="Add To Grocery List" style="cursor: pointer;">
-    </form>
-  <%end%>
-
-<%if @recipe.user.id == session[:user_id]%>
-  <%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
+  <h1><%=@recipe.name.titleize%></h1> 
+  <h3>Freak: <%=@recipe.user.username%></h3>
   
-    <h4><a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a></h4>
-    <form action="/recipes/<%=@recipe.id%>/delete" method="post" onsubmit="confirm('Are you sure you want to delete the following note?')">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete Recipe">
-    </form>
- 
-<%end%>
+  <div class="submitButton">
+    <%if @recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
+        <form action="/users/like" method="post" style="display: inline-block;">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
+          <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+          <input type="submit" value="Unlike" style="cursor: pointer;">
+        </form>
+    <%else%>
+        <form action="/users/like" method="post" style="display: inline-block;">
+          <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+          <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
+          <input type="submit" value="Like Recipe" style="cursor: pointer;">
+        </form>
+    <%end%>
 
+    <%if @recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
+        <form action="/users/bag" method="post" style="display: inline-block;">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+          <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
+          <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
+        </form>
+    <%else%>
+        <form action="/users/bag" method="post" style="display: inline-block;">
+          <input type="hidden" name="recipe_id" value="<%=@recipe.id%>">
+          <input type="hidden" name="destination" value="/recipes/<%=@recipe.id%>">
+          <input type="submit" value="Add To Grocery List" style="cursor: pointer;">
+        </form>
+    <%end%>
+
+    <%if @recipe.user.id == session[:user_id]%>
+      
+        <a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a>
+        <%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
+        <form action="/recipes/<%=@recipe.id%>/delete" method="post" onsubmit="return confirm('Are you sure you want to delete the following note?')">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete Recipe">
+        </form>
+    <%end%>
+  </div>
 <h2><%=@recipe.cuisine.name.titleize%></h2>
 <h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
 <br>
@@ -76,7 +77,7 @@
   <%end%>
 </ol>
 <br>
- <input class="printButton" type="submit" onclick="window.print();return false;" value="Print">
+ <input class="printButton" type="image" src="/images/print-outline.png" onclick="window.print();return false;" alt="Print">
 </div>
 
 <%else%>
