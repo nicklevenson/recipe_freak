@@ -33,11 +33,12 @@
     background-color: white;
     position: fixed;
     width: 100%;
-    height: 200px;
+    height: max-content;
     overflow: hidden;
     top:0;
     text-align: center;
     text-justify: center;
+    padding-bottom: 20px;
   }
 
   #homelink {
@@ -52,7 +53,8 @@
   .topnav a{
     text-align: center;
     display: inline-block;
-    padding-top: 50px;
+    padding-top: 20px;
+   
     margin: 0px 20px;
     height: inherit;
     color: black;
@@ -84,11 +86,11 @@
     align-self: top;
     display: grid;
     position: static;
-    grid-template: 5% 5% 1fr 5%/ repeat(5, 1fr);
+    grid-template: 50px max-content 5%/ repeat(5, 1fr);
   }
 
   .yield {
-    grid-area: 3 / 1 / 4 / 6;
+    grid-area: 1 / 1 / 4 / 6;
     justify-self: center;
     align-self: top;
     text-align: center;
@@ -100,8 +102,10 @@
     display: grid;
     grid-template: 50px/ repeat(2, 50%);
     background-color: white;
-    grid-row: 1;
     position: fixed;
+    /* top: 80px; */
+    /* margin-top: 50px; */
+    /* grid-row: 1; */
   }
   
   #filter {
@@ -145,6 +149,16 @@
   .list a {
     padding: 5px;
     color: rgb(0, 0, 0) !important;
+  }
+
+  .list h1 {
+    width: max-content;
+    margin: auto;
+    line-height: 50px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 3px;
   }
 
   .listItem {
@@ -233,13 +247,15 @@
   }
 
   footer.branding {
-    grid-area: 4 / 1 / 5 / 6;
     /* border-top: 2px solid #ccc; */
+    position: fixed;
+    bottom: 0;
     width: 100%;
     justify-self: center;
     align-self: flex-end;
     text-align: center;
-    background-color: white;
+    color: white;
+    background-color: black;
   }
 }
 
@@ -262,6 +278,10 @@
     border-top: 2px solid #ccc;
     padding: 0;
   }
+  .topnav {
+    padding-top: 20px;
+    font-size: 10px;
+  }
   .topnav a {
     display: inline-block;
     padding: 0;
@@ -269,13 +289,16 @@
     height: min-content;
   }
 
-  h1 {
-    font-size: 24px;
-    line-height: 36px;
+  #homelink {
+    font-size: 10px;
+    white-space: nowrap;
     text-align: center;
     justify-self: center;
     align-self: center;
-    
+  }
+
+  #searchContainer {
+    top: 80px; 
   }
 
   h2 {
