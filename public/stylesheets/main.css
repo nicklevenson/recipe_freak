@@ -205,6 +205,14 @@
     overflow: scroll;
   }
 
+  #userRecipe input{
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    border: none;
+  }
+
   h2 {
     border-bottom: 2px solid #ccc;
     font-size: 24px;
