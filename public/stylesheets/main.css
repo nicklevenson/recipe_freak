@@ -21,7 +21,7 @@
 
   body {
     height: 100%;
-    background-image: url(https://www.kindpng.com/picc/m/113-1135703_hamburger-fast-food-veggie-burger-cartoon-burger-png.png);
+    background-image: url("/images/burger.png");
     background-size: 300px;
     background-color: rgb(255, 255, 255);
     color: #333;
@@ -103,10 +103,8 @@
     grid-template: 50px/ repeat(2, 50%);
     background-color: white;
     position: fixed;
-    /* top: 80px; */
-    /* margin-top: 50px; */
-    /* grid-row: 1; */
   }
+
   
   #filter {
     text-align: left;
@@ -124,13 +122,21 @@
     text-align: right;
     padding-right: 30px;
     align-self: center;
+    height: 50px;
   }
-  #searchby input{
-    background-color: transparent;
-    border: none;
+
+  #searchby form {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    display: grid;
+    grid-template: 100% / 90% 10%;
+  }
+  #searchImage {
+    grid-column: 2 !important;
     height: 30px;
-    cursor: pointer;
-    font-size: 15px;
+    align-self: center;
+    justify-self: right;
   }
   #searchbar {
     width: 65%;
@@ -139,6 +145,8 @@
     border: solid thin!important;
     cursor: text !important;
     text-align: center;
+    align-self: center;
+    justify-self: end;
   }
 
   .list {
