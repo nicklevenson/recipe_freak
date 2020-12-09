@@ -49,12 +49,22 @@
 <h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
 <br>
 
-<h3>Serving Size: <input type="number" value="<%=@recipe.serving_size%>"></h3>
+<h3>Serving Size: 
+  <form action="/recipes/<%=@recipe.id%>" method="get" style="display: inline-block;">
+    <input type="number" name="serving" value="<%=@serving%>" onchange='if(this.value != 0) { this.form.submit(); }'>
+  </form>
+</h3>
 
 <h3>Ingredients:</h3>
 <ol>
   <%@recipe.ingredients.each do |ingredient|%>
-    <li><%=ingredient.amount%> <%=ingredient.unit_type%> <%=ingredient.name%></li>
+    <li>
+    <%if @serving%>
+      <%=ingredient.step_change(@serving).round(2)%>
+    <%else%>
+       <%=ingredient.amount%>
+    <%end%>
+    <%=ingredient.unit_type%> <%=ingredient.name%></li>
   <%end%>
 </ol>
 <br><br>

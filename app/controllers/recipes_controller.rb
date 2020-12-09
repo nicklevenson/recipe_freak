@@ -1,10 +1,5 @@
 class RecipesController < ApplicationController
 
-  # GET: /recipes
-  get "/recipes" do
-    erb :"/recipes/index.html"
-  end
-
   # GET: /recipes/new
   get "/recipes/new" do
     if logged_in?
@@ -32,7 +27,14 @@ class RecipesController < ApplicationController
 
   # GET: /recipes/5
   get "/recipes/:id" do
-    @recipe = Recipe.find(params[:id])
+   
+    if params[:serving]
+      @serving = params[:serving].to_i
+      @recipe = Recipe.find(params[:id])
+    else
+      @recipe = Recipe.find(params[:id])
+      @serving = @recipe.serving_size
+    end
     erb :"/recipes/show.html"
   end
 
