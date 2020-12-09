@@ -34,40 +34,45 @@
       <div class="listItem">
         <a href="/recipes/<%=recipe.id%>">
           <h4><%=recipe.name.titleize%></h4>
+          <hr>
           <h5>
-            <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.titleize%><%end%>
-            <%if recipe.user %> <br> <%=recipe.user.username%> <%end%>
+            Cuisine: <%if recipe.cuisine %> <%=recipe.cuisine.name.titleize%><%end%><br>
+            Cook Time: <%if recipe.cook_time %> <%=recipe.cook_time%> <%end%><br>
+            By: <%if recipe.user %> <%=recipe.user.username%> <%end%><br>
           </h5> 
         </a>
-            <br> <%=recipe.likes.count%> likes
-            
-            <%if recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
-              <form action="/users/like" method="post" style="display: inline-block;">
-                <input type="hidden" name="_method" value="delete">
-                <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-                <input type="submit" value="Unlike" style="cursor: pointer;">
-              </form>
-            <%else%>
-              <form action="/users/like" method="post" style="display: inline-block;">
-                <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-                <input type="submit" value="Like" width="45" style="cursor: pointer;">
-              </form>
-            <%end%>
-          <br><br>
-            <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
-              <form action="/users/bag" method="post" style="display: inline-block;">
-                <input type="hidden" name="_method" value="delete">
-                <input type="hidden" name="destination" value="/">
-                <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-                <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
-              </form>
-            <%else%>
-              <form action="/users/bag" method="post" style="display: inline-block;">
-                <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
-                <input type="hidden" name="destination" value="/">
-                <input type="submit" value="Add to Grocery List" style="cursor: pointer;">
-              </form>
-            <%end%>
+            <br>
+            <h6> 
+              <%=recipe.likes.count%> likes
+              
+              <%if recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
+                <form action="/users/like" method="post" style="display: inline-block;">
+                  <input type="hidden" name="_method" value="delete">
+                  <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+                  <input type="submit" value="Unlike" style="cursor: pointer;">
+                </form>
+              <%else%>
+                <form action="/users/like" method="post" style="display: inline-block;">
+                  <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+                  <input type="submit" value="Like" width="45" style="cursor: pointer;">
+                </form>
+              <%end%>
+            <br><br>
+              <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
+                <form action="/users/bag" method="post" style="display: inline-block;">
+                  <input type="hidden" name="_method" value="delete">
+                  <input type="hidden" name="destination" value="/">
+                  <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+                  <input type="submit" value="Added To Grocery List" style="cursor: pointer;">
+                </form>
+              <%else%>
+                <form action="/users/bag" method="post" style="display: inline-block;">
+                  <input type="hidden" name="recipe_id" value="<%=recipe.id%>">
+                  <input type="hidden" name="destination" value="/">
+                  <input type="submit" value="Add to Grocery List" style="cursor: pointer;">
+                </form>
+              <%end%>
+            </h6>
       </div>
     <%end%>
   <%end%>

@@ -20,7 +20,7 @@
   }
   body {
     height: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 242);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -84,7 +84,7 @@
   }
 
   .yield {
-    grid-area: 3 / 1 / 4 / 6;
+    grid-area: 3 / 2 / 4 / 5;
     justify-self: center;
     align-self: top;
     text-align: center;
@@ -119,14 +119,22 @@
   }
 
   .listItem {
-    background-color: rgb(250, 215, 215);
+    color: grey;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 5px grey;
     width: 220px;
-    height: 180px;
+    height: 200px;
     display: inline-block;
-    border-radius: 10%;
+    border-radius: 2%;
     margin: 4px;
     overflow: scroll;
+  }
+
+  .listItem hr {
+    border: thin;
+    border-top: thin solid #243588;
+    width: 95%;
+    margin: auto;
   }
 
   .recipe {
@@ -134,10 +142,10 @@
   }
 
   .editForm {
-    background-color: rgb(250, 215, 215);
+    background-color: white;
     box-shadow: 1px 1px 5px grey;
     padding: 30px;
-    border-radius: 10%;
+    border-radius: 3%;
   }
 
   h2 {
