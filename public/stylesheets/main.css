@@ -17,6 +17,7 @@
   }
   * a{
     text-decoration: none;
+    color: black;
   }
 
   body {
@@ -233,6 +234,17 @@
   #groceryList td {
    border-top: solid thin;
    padding: 20px;
+  }
+
+  #groceryList input {
+    border: none;
+    background-color: transparent;
+  }
+
+  .printButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 
   h2 {
