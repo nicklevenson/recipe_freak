@@ -136,17 +136,18 @@
     grid-column: 2 !important;
     height: 30px;
     align-self: center;
-    justify-self: right;
+    justify-self: left;
+    border-radius: 25px;
   }
   #searchbar {
-    width: 65%;
+    width: 80%;
     height: 30px;
     border-radius: 20px;
     border: solid thin!important;
     cursor: text !important;
     text-align: center;
     align-self: center;
-    justify-self: end;
+    justify-self: right;
   }
 
   .list {
