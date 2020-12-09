@@ -2,7 +2,8 @@
 <div class="editForm">
 <%if @recipe.public? == true || (@recipe.public? == false && @recipe.user.id == session[:user_id])%>
 
-<h1><%=@recipe.name.titleize%> by <%=@recipe.user.username%><br><br>
+<h1><%=@recipe.name.titleize%></h1> 
+<h3>Freak: <%=@recipe.user.username%></h3><br><br>
  <%if @recipe.likes.select {|like| like.user_id == session[:user_id]} != []%>
     <form action="/users/like" method="post" style="display: inline-block;">
       <input type="hidden" name="_method" value="delete">
@@ -32,7 +33,6 @@
       <input type="submit" value="Add To Grocery List" style="cursor: pointer;">
     </form>
   <%end%>
-</h1>
 
 <%if @recipe.user.id == session[:user_id]%>
   <%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
