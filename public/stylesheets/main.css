@@ -96,24 +96,25 @@
 
   #searchContainer {
     width: 100%;
-    height: 100px;
+    height: 50px;
     display: grid;
-    grid-template: 50px 50px/ repeat(2, 50%);
-    padding: 20px;
+    grid-template: 50px/ repeat(2, 50%);
+    padding: 0px;
     background-color: white;
     grid-row: 1;
+    position: fixed;
   }
-  #searchContainer h1 {
-    grid-column: 1/3;
-  }
+  
   #filter {
     text-align: left;
     align-self: center;
     grid-column: 2;
     padding-left: 30px;
+    font-size: 15px;
   }
   #filterbar {
-    width: 65%
+    width: 65%;
+    height: 30px;
   }
   #searchby {
     grid-column: 1;
@@ -124,12 +125,22 @@
   #searchby input{
     background-color: transparent;
     border: none;
+    height: 30px;
     cursor: pointer;
+    font-size: 15px;
   }
   #searchbar {
     width: 65%;
+    height: 30px;
+    border-radius: 20px;
     border: solid thin!important;
     cursor: text !important;
+    text-align: center;
+  }
+
+  .list {
+    display: block;
+    padding-top: 80px;
   }
 
   .list a {
@@ -140,10 +151,9 @@
   .listItem {
     color: grey;
     background-color: rgb(254, 255, 254);
-    
     box-shadow: 1px 1px 5px grey;
-    width: 250px;
-    height: 260px;
+    width: 240px;
+    height: 250px;
     display: inline-block;
     border-radius: 2%;
     margin: 20px;
