@@ -26,7 +26,7 @@
       <label>Steps:</label><br>
       <div id='step1'>
         <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot">
-        <input type="button" onclick="deleteStep('step1');" value="Delete Step" style="display: inline-block;">
+        <input type="image" src="/images/trash.png" onclick="deleteStep('step1');" alt="Delete Step" style="display: inline-block; vertical-align: middle;">
       </div>
       <div id="newStep"></div>
       <input type="button" id="addStep" onclick="createNewStep();" value="Add Another Step">
@@ -45,7 +45,7 @@ function createNewIngredient() {
 
 function createNewStep() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<div id='newS'><input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><input type='button' onclick='deleteStep(\"newS\");' value='Delete Step' style='display: inline-block;'></div>";
+	txtNewInputBox.innerHTML = "<div id='newS'><input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><input type='image' src='/images/trash.png' onclick='deleteStep(\"newS\");'alt='Delete Step' style='display: inline-block; vertical-align: middle;'></div>";
 	document.getElementById("newStep").appendChild(txtNewInputBox);
 }
 
