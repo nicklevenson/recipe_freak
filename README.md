@@ -1,6 +1,18 @@
 Welcome to Recipe Freak! 
 
-This web application allows users to browse, create, and share their recipes! With simplicity and convenience in mind, users can easily access their liked recipes, or add a recipe to their grocery list, which renders a simple shopping list based a recipe's ingredients. A user can as many recipes to their grocery list as they would like. When viewing a recipe, a user can easily adjust the serving size and subsequently proportionally change the ingredient quantities. 
+Description: 
+
+  This web application allows users to browse, create, and share their recipes! With simplicity and convenience in mind, users can easily access their liked recipes, or add a recipe to their grocery list, which renders a simple shopping list based a recipe's ingredients. A user can as many recipes to their grocery list as they would like. When viewing a recipe, a user can easily adjust the serving size and subsequently proportionally change the ingredient quantities. 
 
 
-This is a sinatra based application taking advantage of 
+Installation for local use:
+
+  -Clone this repository 
+  -Make sure Ruby is installed
+  -Run 'bundle install' in the terminal 
+  -Run 'rake db:migrate' to run all the migrations
+  -To start the server run 'shotgun' in the terminal
+  -navigate to the proper port in your browser
+  -if you want to seed the db with fake data, just run 'rake db:seed' in the terminal
+
+
