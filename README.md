@@ -7,12 +7,12 @@ Description:
 
 Installation for local use:
 
-  -Clone this repository 
-  -Make sure Ruby is installed
-  -Run 'bundle install' in the terminal 
-  -Run 'rake db:migrate' to run all the migrations
-  -To start the server run 'shotgun' in the terminal
-  -navigate to the proper port in your browser
-  -if you want to seed the db with fake data, just run 'rake db:seed' in the terminal
+  1) Clone this repository 
+  2) Make sure Ruby is installed
+  3) Run 'bundle install' in the terminal 
+  4) Run 'rake db:migrate' to run all the migrations
+  5) To start the server run 'shotgun' in the terminal
+  6) Navigate to the proper port in your browser
+  7) If you want to seed the db with fake data, just run 'rake db:seed' in the terminal
 
 
