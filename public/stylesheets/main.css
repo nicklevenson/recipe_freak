@@ -20,6 +20,20 @@
     color: black;
   }
 
+  * input:focus,
+  select:focus,
+  textarea:focus, 
+  button:focus {
+      outline: none;
+      background-color: white;
+  }
+  * input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
   body {
     height: 100%;
     background-image: url("/images/burger.png");
@@ -32,7 +46,7 @@
 
   .topnav {
     display: block;
-    background-color: white;
+    background-color:black;
     position: fixed;
     width: 100%;
     height: max-content;
@@ -41,7 +55,7 @@
     text-align: center;
     text-justify: center;
     padding-top: 30px;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
   }
 
   #homelink {
@@ -60,7 +74,7 @@
     /* padding-top: 20px; */
     margin: 10px 20px;
     height: inherit;
-    color: black;
+    color: white;
     background-color: transparent;
     cursor: pointer;
     border: none;
@@ -68,10 +82,10 @@
   }
 
   .topnav a:hover, .topnav input:hover{
-    text-shadow: 1px 1px 1px grey; 
+    text-shadow: 1px 1px 1px lightgrey; 
   }
   .topnav a:active, .topnav input:active{
-    text-shadow: 1px 1px 1px grey; 
+    text-shadow: 1px 1px 1px lightgrey; 
     font-size: 14px;
     border: none;
   }
@@ -110,9 +124,9 @@
     height: 50px;
     display: grid;
     grid-template: 50px/ repeat(2, 50%);
-    background-color: white;
+    background-color: rgb(221, 220, 220);
     position: fixed;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   
