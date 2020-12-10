@@ -40,9 +40,9 @@
       
         <a href="/recipes/<%=@recipe.id%>/edit">Edit Recipe</a>
         <%if @recipe.public? %>(Published) <%else%>(Not Published) <%end%>
-        <form action="/recipes/<%=@recipe.id%>/delete" method="post" onsubmit="return confirm('Are you sure you want to delete the following note?')">
+        <form action="/recipes/<%=@recipe.id%>/delete" method="post">
           <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Delete Recipe">
+          <input type="button" value="Delete Recipe"  onclick='if(confirm("are you sure?")) { this.form.submit(); }'>
         </form>
     <%end%>
   </div>

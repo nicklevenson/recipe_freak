@@ -56,7 +56,6 @@
     text-align: center;
     display: inline-block;
     padding-top: 20px;
-   
     margin: 0px 20px;
     height: inherit;
     color: black;
@@ -75,9 +74,6 @@
     border: none;
   }
 
-  /* h1 {
-    padding: 0px 0px 50px 0px;
-  } */
   .wrapper {
     background: transparent;
     max-width: 100%;
@@ -185,12 +181,12 @@
     margin: 20px;
     padding-top: 20px;
     overflow: scroll;
-    transition: 0.3s ease-in-out;
+    transition: .6s ease-in-out;
   }
 
   .listItem:hover {
-    box-shadow: 1px 10px 20px grey;
-    width: 250px;
+    box-shadow: 1px 20px 30px grey;
+    /* width: 250px; */
   }
 
   .listItem hr {
@@ -240,6 +236,15 @@
     border-radius: 50%;
     font-weight: bold;
     border: none;
+  }
+
+  .newRecipe input {
+    border: solid thin;
+    margin: 3px;
+    padding: 3px;
+    height: 20px;
+    border-radius: 10px;
+    background: none;
   }
 
   #groceryList {

@@ -1,9 +1,9 @@
 <div class="editForm">
   <% if logged_in? && @recipe.user.id == session[:user_id]%>
   <h1>Edit Recipe</h1>
-    <form action="/recipes/<%=@recipe.id%>/delete" method="post" onsubmit="confirm('Are you sure you want to delete the following note?')">
+    <form action="/recipes/<%=@recipe.id%>/delete" method="post">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete Recipe">
+      <input type="button" value="Delete Recipe"  onclick='if(confirm("are you sure?")) { this.form.submit(); }'>
     </form>
 
   <form action="/recipes/<%=@recipe.id%>" method="post" class="recipe">
