@@ -57,7 +57,7 @@
         for (i = 0; i < list.length; i++) {
           link = list[i]
           id = list[i].id
-          if (link.href == path){
+          if (link.href == path && id != "homelink"){
             link.style.color = "white"
             link.style.fontSize = "20px"
             console.log("done")
