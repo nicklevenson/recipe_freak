@@ -75,7 +75,7 @@
     /* padding-top: 20px; */
     margin: 10px 20px;
     height: inherit;
-    color: rgb(224, 224, 224);
+    color: rgb(163, 163, 163);
     background-color: transparent;
     cursor: pointer;
     border: none;
@@ -88,7 +88,7 @@
   }
   .topnav a:active, .topnav input:active{
     color: white;
-    font-size: 14px;
+    /* font-size: 14px; */
     border: none;
   }
   
@@ -193,8 +193,20 @@
     padding: 10px;
     background-color: white;
     box-shadow: 1px 1px 5px grey;
-    border-radius: 3px;
+    border-radius: 6px;
+    animation-name: fadehead;
+    animation: fadehead 6s;
+    opacity: 0;
   }
+
+  @keyframes fadehead {
+    0% {opacity: 0;}
+    30% {opacity: 1;}
+    60% {opacity: 1;}
+    100% {opacity: 0;}
+  }
+
+
 
   .listItem {
     white-space: nowrap;
