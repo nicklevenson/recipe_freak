@@ -21,16 +21,16 @@
   }
 
   * input:focus,
-  select:focus,
-  textarea:focus, 
-  button:focus {
+    select:focus,
+    textarea:focus, 
+    button:focus {
       outline: none;
       background-color: white;
   }
   * input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active {
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
   }
 
@@ -46,7 +46,7 @@
 
   .topnav {
     display: block;
-    background-color:black;
+    background-color:rgb(18, 18, 18);
     position: fixed;
     width: 100%;
     height: max-content;
@@ -55,7 +55,7 @@
     text-align: center;
     text-justify: center;
     padding-top: 30px;
-    /* padding-bottom: 20px; */
+    padding-bottom: 10px;
   }
 
   #homelink {
@@ -65,6 +65,7 @@
     padding-bottom: 5px;
     display: block;
     height: min-content;
+    color: white !important;
   }
 
   .topnav a, .topnav input{
@@ -74,7 +75,7 @@
     /* padding-top: 20px; */
     margin: 10px 20px;
     height: inherit;
-    color: white;
+    color: rgb(224, 224, 224);
     background-color: transparent;
     cursor: pointer;
     border: none;
@@ -82,10 +83,11 @@
   }
 
   .topnav a:hover, .topnav input:hover{
-    text-shadow: 1px 1px 1px lightgrey; 
+    text-shadow: 0px 0px 1px white;
+    color: white; 
   }
   .topnav a:active, .topnav input:active{
-    text-shadow: 1px 1px 1px lightgrey; 
+    color: white;
     font-size: 14px;
     border: none;
   }
@@ -126,7 +128,7 @@
     grid-template: 50px/ repeat(2, 50%);
     background-color: rgb(221, 220, 220);
     position: fixed;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   
@@ -384,6 +386,7 @@
   }
   .topnav {
     padding-top: 20px;
+    height: 70px;
     /* overflow: scroll; */
     /* white-space: nowrap; */
   }
@@ -410,8 +413,10 @@
     align-self: center;
   }
 
+  
+
   #searchContainer {
-    top: 80px; 
+   padding-top: 0;
   }
 
   h2 {
