@@ -247,7 +247,9 @@
   }
 
   #trashButton {
-    display: block;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
     border: none;
   }
 

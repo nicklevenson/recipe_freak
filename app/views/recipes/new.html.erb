@@ -16,7 +16,7 @@
         <input type="number" step="0.1" name="ingredient[][amount]" required="true" placeholder="3">
         <input type="text" name="ingredient[][unit_type]" required="true" placeholder="Cups/tablespoons/etc...">
         <input type="text" name="ingredient[][name]" required="true" placeholder="Ingredient Name">
-        <input type="image" id="trashButton" src="/images/trash.png" onclick="deleteIngredient('ingredient1');" alt="Delete Ingredient" style="display: inline-block; vertical-align: middle;">
+        <img id="trashButton" src="/images/trash.png" onclick="deleteIngredient('ingredient1');" alt="Delete Ingredient">
       </div>
       <div id="newIngredient"></div>
       <img id="addButton" src="/images/add.png" onclick="createNewIngredient();" alt="Add Another Ingredient">
@@ -26,7 +26,7 @@
       <label>Steps:</label><br>
       <div id='step1'>
         <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot">
-        <input type="image" id="trashButton" src="/images/trash.png" onclick="deleteStep('step1');" alt="Delete Step" style="display: inline-block; vertical-align: middle;">
+        <img id="trashButton" src="/images/trash.png" onclick="deleteStep('step1');" alt="Delete Step">
       </div>
       <div id="newStep"></div>
       <img id="addButton" src="/images/add.png" onclick="createNewStep();" alt="Add Another Step">
@@ -44,13 +44,13 @@ function createNewIngredient() {
   <input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> \
   <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> \
   <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'> \
-  <input type='image'  id='trashButton' src='/images/trash.png' onclick='deleteIngredient(\"newIG\");' alt='Delete Ingredient' style='display: inline-block; vertical-align: middle;'></div>";
+  <img id='trashButton' src='/images/trash.png' onclick='deleteIngredient(\"newIG\");' alt='Delete Ingredient'></div>";
 	document.getElementById("newIngredient").appendChild(txtNewInputBox);
 }
 
 function createNewStep() {
 	var txtNewInputBox = document.createElement('div');
-	txtNewInputBox.innerHTML = "<div id='newS'><input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><input type='image' id='trashButton' src='/images/trash.png' onclick='deleteStep(\"newS\");'alt='Delete Step' style='display: inline-block; vertical-align: middle;'></div>";
+	txtNewInputBox.innerHTML = "<div id='newS'><input type='text' name='step[][action]' required='true' placeholder='Put the beans in the pot'><img id='trashButton' src='/images/trash.png' onclick='deleteStep(\"newS\");'alt='Delete Step'></div>";
 	document.getElementById("newStep").appendChild(txtNewInputBox);
 }
 
