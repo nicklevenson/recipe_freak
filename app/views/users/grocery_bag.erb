@@ -1,12 +1,14 @@
 <div class="editForm">
   <% if logged_in? %>
     <h1>My Grocery List:</h1>
+    <br>
+    <h6>(Drag section to move in list)</h6>
     <table id="groceryList">
       <tr>
         <th>Recipes</th>
         <th>Ingredients To Get</th>
       </tr>
-  
+        <tbody>
         <%@recipes.each do |recipe| %>
         <tr>
           <td>
@@ -32,10 +34,17 @@
             </ol>
           </td>
         <%end%>
-        
+      </tbody>
     </table>
     <input class="printButton" type="image" src="/images/print-outline.png" onclick="window.print();return false;" alt="Print">
 </div>
 <% else %>
 <h3>Please <a href="/login">Log In</a> to view this page</h3>
 <%end%>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+  <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $('tbody').sortable();
+</script>
