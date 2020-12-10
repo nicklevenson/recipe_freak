@@ -119,9 +119,8 @@
   #searchby {
     grid-column: 1;
     text-align: right;
-    padding-right: 30px;
+    /* padding-right: 30px; */
     align-self: center;
-    height: 50px;
   }
 
   #searchby form {
