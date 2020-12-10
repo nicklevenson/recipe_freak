@@ -1,10 +1,5 @@
 
 @media print {
-  * {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
 
   html, body {
     height: 100%;
@@ -17,6 +12,7 @@
   }
   * a{
     text-decoration: none;
+    color: black;
   }
 
   body {
@@ -26,61 +22,50 @@
     background-color: rgb(255, 255, 255);
     color: #333;
     font-family: Sans-Serif;
+    line-height: 18px;
   }
 
   .topnav {
-    display: block;
-    background-color: white;
-    position: fixed;
-    width: 100%;
-    height: max-content;
-    overflow: hidden;
-    top:0;
-    text-align: center;
-    text-justify: center;
-    padding-bottom: 20px;
+    display: none;
   }
 
   #homelink {
     width: 100%;
     font-size: 40px;
     letter-spacing: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     display: block;
     height: min-content;
   }
 
-  .topnav a{
-    text-align: center;
-    display: inline-block;
-    padding-top: 20px;
-   
-    margin: 0px 20px;
-    height: inherit;
-    color: black;
-  }
-
-  .topnav input{
+  .topnav a, .topnav input{
     font-size: 16px;
     text-align: center;
     display: inline-block;
-    /* padding-top: 15px; */
-    margin: 0px 20px;
+    /* padding-top: 20px; */
+    margin: 10px 20px;
     height: inherit;
     color: black;
     background-color: transparent;
     cursor: pointer;
     border: none;
+    transition: .2s ease-in-out;
   }
 
-  /* h1 {
-    padding: 0px 0px 50px 0px;
-  } */
+  .topnav a:hover, .topnav input:hover{
+    text-shadow: 1px 1px 1px grey; 
+  }
+  .topnav a:active, .topnav input:active{
+    text-shadow: 1px 1px 1px grey; 
+    font-size: 14px;
+    border: none;
+  }
+  
   .wrapper {
     background: transparent;
     max-width: 100%;
     height: 100%;
-    padding-top: 80px;
+   
     width: 100%;
     justify-self: top;
     align-self: top;
@@ -95,7 +80,15 @@
     align-self: top;
     text-align: center;
     width: 100%;
+    /* animation-name: fadeItems;
+    animation: fadeItems .5s; */
   }
+
+  /* @keyframes fadeItems {
+    0% {opacity: 0;}
+    5% {opacity: 0;}
+    100% {opacity: 1;}
+  } */
 
   #searchContainer {
     width: 100%;
@@ -104,6 +97,7 @@
     grid-template: 50px/ repeat(2, 50%);
     background-color: white;
     position: fixed;
+    margin-top: 20px;
   }
 
   
@@ -121,9 +115,8 @@
   #searchby {
     grid-column: 1;
     text-align: right;
-    padding-right: 30px;
+    /* padding-right: 30px; */
     align-self: center;
-    height: 50px;
   }
 
   #searchby form {
@@ -153,7 +146,7 @@
 
   .list {
     display: block;
-    padding-top: 80px;
+
   }
 
   .list a {
@@ -161,7 +154,7 @@
     color: rgb(0, 0, 0) !important;
   }
 
-  .list h1 {
+  .list .header{
     width: max-content;
     margin: auto;
     line-height: 50px;
@@ -183,6 +176,11 @@
     margin: 20px;
     padding-top: 20px;
     overflow: scroll;
+    transition: .6s ease-in-out;
+  }
+
+  .listItem:hover {
+    box-shadow: 1px 20px 30px grey;
   }
 
   .listItem hr {
@@ -205,6 +203,7 @@
   }
 
   .editForm {
+    white-space: nowrap;
     max-width: 75%;
     width: 700px;
     background-color: white;
@@ -215,6 +214,16 @@
     overflow: scroll;
   }
 
+  .submitButton input, form {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: normal !important;
+    display: inline-block;
+    margin: 10px;
+  }
+
   #userRecipe input{
     background-color: transparent;
     padding: 5px;
@@ -222,6 +231,31 @@
     font-weight: bold;
     border: none;
   }
+
+  .newRecipe input {
+    border: solid thin;
+    margin: 3px;
+    padding: 3px;
+    height: 20px;
+    border-radius: 10px;
+    background: none;
+  }
+
+  #trashButton {
+    height: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    border: none;
+  }
+
+  #addButton {
+    display: inline-block;
+    height: 15px;
+    padding-left: 3px;
+    padding-top: 2px;
+    border: none;
+  }
+
 
   #groceryList {
     width: 100%;
@@ -231,6 +265,15 @@
   #groceryList td {
    border-top: solid thin;
    padding: 20px;
+  }
+
+  #groceryList input {
+    border: none;
+    background-color: transparent;
+  }
+
+  .printButton {
+   display: none;
   }
 
   h2 {
@@ -285,5 +328,61 @@
     color: white;
     background-color: black;
   }
+}
 
+@media screen and (max-width: 600px) {
+  .wrapper {
+    /* -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: auto; */
+  }
+
+  .content, .sidebar {
+    float: none;
+    width: 100%;
+  }
+
+  .sidebar {
+    background: transparent;
+    border: none;
+    border-top: 2px solid #ccc;
+    padding: 0;
+  }
+  .topnav {
+    padding-top: 20px;
+    /* overflow: scroll; */
+    /* white-space: nowrap; */
+  }
+  .topnav a {
+    font-size: 10px;
+    display: inline-block;
+    padding: 2px;
+    margin: 0;
+    height: min-content;
+  }
+  .topnav input {
+    font-size: 10px;
+    display: inline-block;
+    padding: 2px;
+    margin: 0;
+    height: min-content;
+  }
+
+  #homelink {
+    font-size: 10px;
+    white-space: nowrap;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+  }
+
+  #searchContainer {
+    top: 80px; 
+  }
+
+  h2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
