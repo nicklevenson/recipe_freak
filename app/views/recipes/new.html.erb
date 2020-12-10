@@ -1,11 +1,11 @@
 <div class="editForm">
   <div class="newRecipe">
     <h1>Make A New Recipe</h1>
-
+    <br><br>
     <form action="/recipes" method="post" class="recipe">
 
       <label>Recipe Details:</label><br>
-      <input type="text" name="recipe[name]" required="true" placeholder="Recipe Name"><br>
+     <input type="text" name="recipe[name]" required="true" placeholder="Recipe Name"><br>
       <input type="text" name="recipe[cook_time]" required="true" placeholder="Cook Time"><br>
       <input type="text" name="cuisine[name]" required="true" placeholder="Cuisine"><br>
       <input type="number" name="recipe[serving_size]" required="true" placeholder="Serving Size"><br>
@@ -32,11 +32,13 @@
       <img id="addButton" src="/images/add.png" onclick="createNewStep();" alt="Add Another Step">
       <br><br><br>
 
-      Public: <input type="checkbox" name="recipe[public?]">
+      Public: <input type="checkbox" name="recipe[public?]" style="vertical-align: middle;">
       <input type="submit" value="Make New Recipe">
     </form>
   </div>
 </div>
+
+
 <script type="text/JavaScript">
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
@@ -64,4 +66,4 @@ function deleteStep(id) {
       step.remove()
      
 }
-</script>
+</script> 
