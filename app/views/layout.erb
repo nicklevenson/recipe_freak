@@ -17,11 +17,11 @@
   <body>
     <div class="topnav">
         <a id="homelink" href="/">RECIPE FREAK</a>
-        <a href="/">Browse</a>
-        <a href="/users/home">My Recipes</a>
-        <a href="/recipes/new">New Recipe</a>
-        <a href="/users/like">Liked Recipes</a>
-         <a href="/users/bag">Grocery List</a>
+        <a id="browse" href="/">Browse</a>
+        <a id="home" href="/users/home">My Recipes</a>
+        <a id="my" href="/recipes/new">New Recipe</a>
+        <a id="liked" href="/users/like">Liked Recipes</a>
+        <a id="mylist" href="/users/bag">Grocery List</a>
 
        <%if !logged_in?%>
         <a href="/login">Log In</a>
@@ -47,9 +47,21 @@
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
+
   </body>
+   <script>
+    window.onload = linkColor()
+      function linkColor() {
+        list = document.getElementsByTagName('a')
+        path = window.location.href
+        for (i = 0; i < list.length; i++) {
+          link = list[i]
+          id = list[i].id
+          if (link.href == path){
+            link.style.color = "white"
+            console.log("done")
+          }
+        }
+      }
+    </script>
 </html>
