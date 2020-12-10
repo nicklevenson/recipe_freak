@@ -52,28 +52,28 @@
     height: min-content;
   }
 
-  .topnav a{
-    text-align: center;
-    display: inline-block;
-    padding-top: 20px;
-    margin: 0px 20px;
-    height: inherit;
-    color: black;
-  }
-
-  .topnav input{
+  .topnav a, .topnav input{
     font-size: 16px;
     text-align: center;
     display: inline-block;
-    /* padding-top: 15px; */
-    margin: 0px 20px;
+    /* padding-top: 20px; */
+    margin: 10px 20px;
     height: inherit;
     color: black;
     background-color: transparent;
     cursor: pointer;
     border: none;
+    transition: .2s ease-in-out;
   }
 
+  .topnav a:hover, .topnav input:hover{
+    text-shadow: 1px 1px 1px grey; 
+  }
+  .topnav a:active, .topnav input:active{
+    text-shadow: 2px 2px 10px grey; 
+    font-size: 14px;
+  }
+  
   .wrapper {
     background: transparent;
     max-width: 100%;
