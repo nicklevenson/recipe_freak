@@ -40,6 +40,7 @@
     top:0;
     text-align: center;
     text-justify: center;
+    padding-top: 30px;
     padding-bottom: 20px;
   }
 
@@ -47,7 +48,7 @@
     width: 100%;
     font-size: 40px;
     letter-spacing: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     display: block;
     height: min-content;
   }
@@ -111,6 +112,7 @@
     grid-template: 50px/ repeat(2, 50%);
     background-color: white;
     position: fixed;
+    margin-top: 20px;
   }
 
   
@@ -368,11 +370,11 @@
   }
   .topnav {
     padding-top: 20px;
-    font-size: 10px;
-    overflow: scroll;
-    white-space: nowrap;
+    /* overflow: scroll; */
+    /* white-space: nowrap; */
   }
   .topnav a {
+    font-size: 10px;
     display: inline-block;
     padding: 2px;
     margin: 0;
