@@ -70,8 +70,9 @@
     text-shadow: 1px 1px 1px grey; 
   }
   .topnav a:active, .topnav input:active{
-    text-shadow: 2px 2px 10px grey; 
+    text-shadow: 1px 1px 1px grey; 
     font-size: 14px;
+    border: none;
   }
   
   .wrapper {
@@ -93,7 +94,15 @@
     align-self: top;
     text-align: center;
     width: 100%;
+    /* animation-name: fadeItems;
+    animation: fadeItems .5s; */
   }
+
+  /* @keyframes fadeItems {
+    0% {opacity: 0;}
+    5% {opacity: 0;}
+    100% {opacity: 1;}
+  } */
 
   #searchContainer {
     width: 100%;
@@ -159,7 +168,7 @@
     color: rgb(0, 0, 0) !important;
   }
 
-  .list h1 {
+  .list .header{
     width: max-content;
     margin: auto;
     line-height: 50px;
@@ -186,7 +195,6 @@
 
   .listItem:hover {
     box-shadow: 1px 20px 30px grey;
-    /* width: 250px; */
   }
 
   .listItem hr {
@@ -248,7 +256,7 @@
   }
 
   #trashButton {
-    height: 20px;
+    height: 15px;
     display: inline-block;
     vertical-align: middle;
     border: none;
@@ -256,7 +264,7 @@
 
   #addButton {
     display: inline-block;
-    height: 20px;
+    height: 15px;
     padding-left: 3px;
     padding-top: 2px;
     border: none;

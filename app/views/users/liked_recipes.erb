@@ -1,6 +1,9 @@
 
   <% if logged_in? %>
   <div class="list">
+    <div class="header">
+      <h1>My Liked Recipes</h1>
+    </div>
     <%@recipes.each do |recipe| %>
       <div class="listItem">
         <a href="/recipes/<%=recipe.id%>">
