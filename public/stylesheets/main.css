@@ -246,6 +246,19 @@
     background: none;
   }
 
+  #trashButton {
+    display: block;
+    border: none;
+  }
+
+  #addButton {
+    height: 20px;
+    padding-left: 3px;
+    padding-top: 2px;
+    border: none;
+  }
+
+
   #groceryList {
     width: 100%;
     padding: 30px;
