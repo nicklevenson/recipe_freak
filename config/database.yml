@@ -4,7 +4,7 @@ development:
   database: recipe_freak_db
   pool: 2
   username: nicklevenson
-  password: Circle@RecipeFreak
+  password: 
 
 production:
   adapter: postgresql
