@@ -2,9 +2,10 @@
 # ENV['SINATRA_ENV'] ||= 'development'
 # require 'bundler/setup'
 
-# Bundler.require
+Bundler.require
 
-# require_all 'app'
+require_all 'app'
+# Dotenv.load
 
 # # ActiveRecord::Base.establish_connection(
 # #   :adapter => "sqlite3",
@@ -23,17 +24,17 @@
 #   set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'recipe_freak_db', pool: 2, username: 'nicklevenson', password: 'Circle26'}
 # end
 
-require 'bundler/setup'
-Bundler.require
-# configure :development do
-#  ENV['SINATRA_ENV'] ||= "development"
 # require 'bundler/setup'
-#  Bundler.require(:default, ENV['SINATRA_ENV'])
-# ActiveRecord::Base.establish_connection(
-#   :adapter => "sqlite3",
-#   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-#  )
-# end
+# Bundler.require
+configure :development do
+ ENV['SINATRA_ENV'] ||= "development"
+require 'bundler/setup'
+ Bundler.require(:default, ENV['SINATRA_ENV'])
+ActiveRecord::Base.establish_connection(
+  :adapter => "sqlite3",
+  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+ )
+end
 
 configure :production do
  db = URI.parse(ENV['DATABASE_URL'] || 'postgres:///localhost/recipe_freak_db')

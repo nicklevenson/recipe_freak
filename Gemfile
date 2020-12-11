@@ -5,7 +5,7 @@ gem 'activerecord', '~> 5.2.4'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'require_all'
-# gem 'sqlite3'
+gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
@@ -13,7 +13,8 @@ gem 'bcrypt'
 gem 'tux'
 gem 'faker'
 gem 'sinatra-flash'
-gem "pg"  
+gem "pg" 
+gem 'dotenv' 
 
 
 group :test do
