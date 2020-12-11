@@ -68,12 +68,12 @@ class RecipesController < ApplicationController
   delete "/recipes/:id/delete" do
     recipe = Recipe.find(params[:id])
     if logged_in?
-      if session[:user_id] == recipe.user.id
+      if session[:user_id] == recipe.user.id || session[:user_id] == 1
         recipe.destroy
         redirect '/users/home'
       end
     else
-      redirect "/recipes"
+      redirect "/"
     end
   end
 end
