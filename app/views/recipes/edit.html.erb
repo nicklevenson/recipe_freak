@@ -4,7 +4,7 @@
     <h1>Edit Recipe</h1>
       <form action="/recipes/<%=@recipe.id%>/delete" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="button" value="Delete Recipe" onclick='if(confirm("are you sure?")) { this.form.submit(); }'>
+        <input type="button" value="Delete Recipe" style="cursor: pointer" onclick='if(confirm("are you sure?")) { this.form.submit(); }'>
       </form>
 
     <br>
