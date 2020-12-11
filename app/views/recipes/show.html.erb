@@ -65,7 +65,7 @@
     <%else%>
        <%=ingredient.amount%>
     <%end%>
-    <%=ingredient.unit_type%> <%=ingredient.name%></li>
+    <%=ingredient.unit_type%> <%=ingredient.name%></li><br>
   <%end%>
 </ol>
 <br><br>
@@ -74,7 +74,7 @@
 <ol>
 <textarea readonly="true" style="width: 80%; height: 200px;">
   <%@recipe.steps.each do |step|%>
-   <%=step.action%>
+   "<%=step.action%>"
   <%end%>
 </textarea>
 </ol>
