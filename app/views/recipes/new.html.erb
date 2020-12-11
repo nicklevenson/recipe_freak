@@ -2,7 +2,7 @@
   <div class="newRecipe">
     <h1>Make A New Recipe</h1>
     <br><br>
-    <form action="/recipes" method="post" class="recipe">
+    <form id="newRecipeForm" action="/recipes" method="post" class="recipe">
 
       <label>Recipe Details:</label><br>
      <input type="text" name="recipe[name]" required="true" placeholder="Recipe Name"><br>
@@ -35,7 +35,7 @@
       Public: <input type="checkbox" name="recipe[public?]" style="vertical-align: middle;">
     
       
-      <input type="submit" value="Make New Recipe" style="cursor: pointer">
+      <input id="submitNewRecipe" type="button" onclick="disable();"value="Make New Recipe" style="cursor: pointer">
 
     </form>
   </div>
@@ -43,6 +43,17 @@
 
 
 <script type="text/JavaScript">
+function disable() {
+  form = document.getElementById("newRecipeForm")
+  button = document.getElementById("submitNewRecipe")
+  if (form.checkValidity() == true) {
+    button.disabled = true;
+    form.requestSubmit()
+  }
+  console.log("non")
+  form.requestSubmit()
+}
+
 function createNewIngredient() {
 	var txtNewInputBox = document.createElement('div');
 	txtNewInputBox.innerHTML = "<div id='newIG'> \
