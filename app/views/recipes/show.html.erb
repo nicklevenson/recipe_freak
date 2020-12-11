@@ -59,13 +59,13 @@
 <h3>Ingredients:</h3>
 <ol>
   <%@recipe.ingredients.each do |ingredient|%>
-    <li>
+    <li style="padding: 5px">
     <%if @serving%>
       <%=ingredient.step_change(@serving).round(2)%>
     <%else%>
        <%=ingredient.amount%>
     <%end%>
-    <%=ingredient.unit_type%> <%=ingredient.name%></li><br>
+    <%=ingredient.unit_type%> <%=ingredient.name%></li>
   <%end%>
 </ol>
 <br><br>
@@ -74,7 +74,7 @@
 <ol>
 <textarea readonly="true" style="width: 80%; height: 200px;">
   <%@recipe.steps.each do |step|%>
-   "<%=step.action%>"
+   <%=step.action%>
   <%end%>
 </textarea>
 </ol>
