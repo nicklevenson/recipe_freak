@@ -50,11 +50,12 @@
 <h3>Cook Time: <%if @recipe.cook_time%><%=@recipe.cook_time.titleize%><%else%>Unknown<%end%></h3>
 <br>
 
-<h3>Serving Size: 
+<h3>Serving Size:
   <form action="/recipes/<%=@recipe.id%>" method="get" style="display: inline-block;">
     <input type="number" name="serving" value="<%=@serving%>" onchange='if(this.value != 0) { this.form.submit(); }'>
   </form>
 </h3>
+<h5>Serving size is adjustable*</h5>
 
 <h3>Ingredients:</h3>
 <ol>
