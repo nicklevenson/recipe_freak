@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
-ruby "2.7.2"
+ruby "2.6.1"
 gem 'sinatra'
 gem 'activerecord', '~> 5.2.4'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'require_all'
-# gem 'sqlite3'
+gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
