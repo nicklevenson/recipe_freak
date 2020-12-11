@@ -72,9 +72,11 @@
 
 <h3>Instructions:</h3>
 <ol>
+<textarea readonly="true" style="width: 80%; height: 200px;">
   <%@recipe.steps.each do |step|%>
-    <textarea readonly="true" style="width: 80%; height: 200px;"><%=step.action%></textarea>
+   <%=step.action%>
   <%end%>
+</textarea>
 </ol>
 <br>
  <input class="printButton" type="image" src="/images/print-outline.png" onclick="window.print();return false;" alt="Print">
