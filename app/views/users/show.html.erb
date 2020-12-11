@@ -4,15 +4,24 @@
     <div class="header">
       <h1>Hello <%=current_user.username%>!</h1>
     </div>
-    <%@recipes.each do |recipe| %>
+    <% if @recipes != []%>
+      <%@recipes.each do |recipe| %>
+        <div class="listItem">
+          <a href="/recipes/<%=recipe.id%>">
+            <h4><%=recipe.name.capitalize%> </h4>
+            <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
+            <%if recipe.public? %> <br><br> (Published) <%else%> <br><br> (Not Published) <%end%>
+          </a>
+          <br><br>
+            <a href="/recipes/<%=recipe.id%>/edit">Edit Recipe</a>
+        </div>
+      <%end%>
+    <% else %>
       <div class="listItem">
-        <a href="/recipes/<%=recipe.id%>">
-          <h4><%=recipe.name.capitalize%> </h4>
-          <%if recipe.cuisine %> <br> <%=recipe.cuisine.name.capitalize%><%end%>
-          <%if recipe.public? %> <br><br> (Published) <%else%> <br><br> (Not Published) <%end%>
-        </a>
-        <br><br>
-          <a href="/recipes/<%=recipe.id%>/edit">Edit Recipe</a>
+        <h4>You don't have any recipes.</h4><br>
+        <p>Aren't you a <b>freak?</b></p>
+        <p>Why don't you make one?</p>
+        <a href="/recipes/new">New Recipe</a>
       </div>
     <%end%>
   </div>
