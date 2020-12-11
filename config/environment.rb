@@ -7,12 +7,12 @@ Bundler.require
 require_all 'app'
 
 ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql",
-  :database => "db/#{ENV['SINATRA_ENV']}.pg"
+  :adapter => "sqlite3",
+  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
 configure :development do 
-  set :database, 'sqlite3:db/development.pg'
+  set :database, 'sqlite3:db/development.sqlite'
 end
 
 use Rack::MethodOverride
