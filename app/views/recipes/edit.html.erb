@@ -1,6 +1,6 @@
 <div class="editForm">
   <div class="newRecipe">
-    <% if logged_in? && @recipe.user.id == session[:user_id] || session[:user_id] == 1%>
+    <% if logged_in? && @recipe.user.id == session[:user_id] || User.find(session[:user_id]).email == "nicklevenson@gmail.com"%>
     <h1>Edit Recipe</h1>
       <form action="/recipes/<%=@recipe.id%>/delete" method="post">
         <input type="hidden" name="_method" value="delete">
