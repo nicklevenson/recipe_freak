@@ -1,11 +1,4 @@
-user = User.create(email: "nicklevenson@gmail.com", username: "nick", password: "circle")
 
-recipe = Recipe.create(name: "pasta", cook_time: "4 mins", serving_size: 6, public?:false)
-user.recipes << recipe
-Cuisine.create({name: "Italian"}).recipes << recipe
-recipe.cook_time = "3 mins"
-recipe.ingredients << Ingredient.create({name: "noodles", amount: 1, unit_type: "Cup"})
-recipe.steps << Step.create({action: "Make the spaget"})
 
 20.times do
   user1 = User.create(email: Faker::Internet.unique.email , username:  Faker::Name.unique.name , password: Faker::Color.unique.hex_color)
