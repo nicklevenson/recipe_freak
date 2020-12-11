@@ -17,23 +17,15 @@ require_all 'app'
 # # end
 
 # configure :development do
-#   set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'recipe_freak_db', pool: 2, username: 'nicklevenson', password: 'Circle26'}
+#   set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'recipe_freak_db', pool: 2, username: 'nicklevenson'}
 # end
 
-# configure :production do
-#   set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'recipe_freak_db', pool: 2, username: 'nicklevenson', password: 'Circle26'}
-# end
+
 
 # require 'bundler/setup'
 # Bundler.require
 configure :development do
- ENV['SINATRA_ENV'] ||= "development"
-require 'bundler/setup'
- Bundler.require(:default, ENV['SINATRA_ENV'])
-ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
- )
+  set :database, {adapter: 'postgresql',  encoding: 'unicode', database: 'recipe_freak_db', pool: 2, username: 'nicklevenson'}
 end
 
 configure :production do
