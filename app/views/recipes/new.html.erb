@@ -23,13 +23,11 @@
       
       <br><br>
 
-      <label>Steps:</label><br>
-      <div id='step1'>
-        <input type="text" name="step[][action]" required="true" placeholder="Put the beans in the pot">
-        <img id="trashButton" src="/images/trash.png" onclick="deleteStep('step1');" alt="Delete Step">
-      </div>
-      <div id="newStep"></div>
-      <img id="addButton" src="/images/add.png" onclick="createNewStep();" alt="Add Another Step">
+      <label>Instructions:</label><br>
+      
+        <textarea name="step[][action]" required="true" placeholder="1) Put the beans in the pot" style="width: 100%; height: 50px; border-radius: 6px;"></textarea>
+      
+   
       <br><br><br>
 
       Public: <input type="checkbox" name="recipe[public?]" style="vertical-align: middle;">

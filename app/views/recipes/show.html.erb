@@ -73,7 +73,7 @@
 <h3>Instructions:</h3>
 <ol>
   <%@recipe.steps.each do |step|%>
-    <li>-<%=step.action%></li>
+    <textarea readonly="true" style="width: 80%; height: 200px;"><%=step.action%></textarea>
   <%end%>
 </ol>
 <br>

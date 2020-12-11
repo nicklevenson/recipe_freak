@@ -37,14 +37,10 @@
       <h5>Steps:</h5>
       <%@recipe.steps.each do |step|%>
         <div id='step<%=step.id%>'>
-          <input type="text" name="step[][action]" required="true" value="<%=step.action%>">
-          <img id="trashButton" src="/images/trash.png" onclick="deleteStep('step<%=step.id%>');" alt="Delete Step">
+          <textarea name="step[][action]" required="true" style="width: 100%; height: 100px; border-radius: 6px;"><%=step.action%></textarea>
         </div>
       <% end %>
-      <div id="newStep"></div>
-      <img id="addButton" src="/images/add.png" onclick="createNewStep();" alt="Add Another Step">
-
-
+  
       <br><br><br>
       <% if @recipe.public? == true%>
       Keep Public: <input type="checkbox" name="recipe[public?]" checked="true" style="vertical-align: middle;">
