@@ -128,7 +128,7 @@
     grid-template: 50px/ repeat(2, 50%);
     background-color: rgb(221, 220, 220);
     position: fixed;
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
   
