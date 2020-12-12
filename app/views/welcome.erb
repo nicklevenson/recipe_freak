@@ -13,9 +13,8 @@
     </form>
   </div>
   <form action="/sort" method="post" id="filter">
-  <label>Filter:</label>
     <select name="sort" value="filter" onchange='if(this.value != 0) { this.form.submit(); }' id="filterbar">
-      <option disabled selected value><%=@last%></option>
+      <option disabled selected value>Filter: <%=@last%></option>
       <option value="recent">Recent-Old</option>
       <option value="popular">Popular</option>
       <option value="name">Alphabetical</option>

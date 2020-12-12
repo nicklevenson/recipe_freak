@@ -135,19 +135,29 @@
   #filter {
     text-align: left;
     align-self: center;
+    justify-self: center;
+    width: 100%;
     grid-column: 2;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     font-size: 15px;
+    display: grid;
+    grid-template: 100% / 100%;
+    /* padding-left: 40px; */
   }
+
   #filterbar {
-    width: 65%;
+    border: 1px rgba(0,0,0,0.3)!important; 
+    width: 85%;
     height: 30px;
+    align-self: center;
+    justify-self: center;
   }
   #searchby {
     grid-column: 1;
-    text-align: right;
+    text-align: left;
     /* padding-right: 30px; */
     align-self: center;
+    padding-right: 10px;
   }
 
   #searchby form {
@@ -163,16 +173,17 @@
     align-self: center;
     justify-self: left;
     border-radius: 25px;
+    /* padding-left: 5px; */
   }
   #searchbar {
-    width: 80%;
+    width: 95%;
     height: 30px;
-    border-radius: 20px;
-    border: solid thin!important;
+    border-radius: 2px;
+    border: 1px rgba(0,0,0,0.3)!important;
     cursor: text !important;
     text-align: center;
     align-self: center;
-    justify-self: right;
+    justify-self: center;
   }
 
   .list {
