@@ -471,11 +471,11 @@
     overflow-y: scroll;
    border-top: solid thin;
    text-align: left;
-   padding: 0px;
+   padding: 5px;
   }
 
   #groceryList td {
-    padding: 0px;
+    padding: 5px;
   }
   #groceryList form {
     width: 100%;
