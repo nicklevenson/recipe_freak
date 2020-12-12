@@ -151,7 +151,7 @@
     height: 30px;
     align-self: center;
     justify-self: center;
-    transition: .6s ease-in-out;
+    transition: .2s ease-in-out;
   }
  
   #searchby {
@@ -179,7 +179,7 @@
     align-self: center;
     justify-self: center;
     border-radius: 25px;
-    transition: .6s ease-in-out;
+    transition: .2s ease-in-out;
   }
   #searchbar {
     width: 95%;
@@ -191,7 +191,7 @@
     align-self: center;
     justify-self: center;
     padding-left: 2px;
-    transition: .6s ease-in-out;
+    transition: .2s ease-in-out;
   }
 
   #searchbar:hover, #filterbar:hover, #searchImage:hover{
@@ -337,13 +337,20 @@
   }
 
   #groceryList td {
+   white-space: normal;
    border-top: solid thin;
    padding: 20px;
+   text-align: left;
+   font-size: 15px;
   }
 
   #groceryList input {
     border: none;
     background-color: transparent;
+  }
+
+  #groceryList li {
+    padding-bottom: 10px;
   }
 
   .printButton {
@@ -476,6 +483,13 @@
 
   #groceryList td {
     padding: 5px;
+  }
+  #groceryList h4 {
+    width: 80px;
+  }
+  #groceryList input {
+    white-space: normal;
+    width: 80px;
   }
   #groceryList form {
     width: 100%;
