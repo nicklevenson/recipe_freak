@@ -151,7 +151,9 @@
     height: 30px;
     align-self: center;
     justify-self: center;
+    transition: .6s ease-in-out;
   }
+ 
   #searchby {
     grid-column: 1;
     text-align: left;
@@ -177,7 +179,7 @@
     align-self: center;
     justify-self: center;
     border-radius: 25px;
-    /* padding-left: 5px; */
+    transition: .6s ease-in-out;
   }
   #searchbar {
     width: 95%;
@@ -188,6 +190,12 @@
     text-align: center;
     align-self: center;
     justify-self: center;
+    padding-left: 2px;
+    transition: .6s ease-in-out;
+  }
+
+  #searchbar:hover, #filterbar:hover, #searchImage:hover{
+    box-shadow: 1px 1px 20px grey;
   }
 
   .list {
