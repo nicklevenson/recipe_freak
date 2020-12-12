@@ -35,13 +35,11 @@
           <h3><%=recipe.name.titleize%></h3>
          
           <br>
-          <h5>
-            Cuisine: <%if recipe.cuisine %> <%=recipe.cuisine.name.titleize%><%end%><br>
-            Cook Time: <%if recipe.cook_time %> <%=recipe.cook_time%> <%end%><br>
-            Freak: <%if recipe.user %> <%=recipe.user.username%> <%end%><br>
-          </h5> 
+          <h5>Cuisine: <%if recipe.cuisine %> <%=recipe.cuisine.name.titleize%><%end%></h5>
+            <h5>Cook Time: <%if recipe.cook_time %> <%=recipe.cook_time%> <%end%></h5>
+           <h6>Freak: <%if recipe.user %> <%=recipe.user.username%> <%end%></h6> 
         </a>
-            <br>
+            
             <h6> 
               <%=recipe.likes.count%> likes
               
@@ -57,7 +55,7 @@
                   <input type="submit" value="Like" width="45" style="cursor: pointer;">
                 </form>
               <%end%>
-            <br><br>
+            <br>
               <%if recipe.bags.select {|bag| bag.user_id == session[:user_id]} != []%>
                 <form action="/users/bag" method="post" style="display: inline-block;">
                   <input type="hidden" name="_method" value="delete">

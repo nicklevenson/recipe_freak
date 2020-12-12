@@ -241,7 +241,7 @@
     display: inline-block;
     border-radius: 2%;
     margin: 20px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     overflow-y: scroll;
     transition: .6s ease-in-out;
   }
@@ -369,7 +369,7 @@
 
   h3 {
     font-size: 18px;
-    line-height: 36px;
+    line-height: 25px;
   }
 
   p {
