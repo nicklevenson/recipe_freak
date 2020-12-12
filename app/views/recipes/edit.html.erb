@@ -26,6 +26,7 @@
           <input type="text" name="ingredient[][unit_type]" required="true" value="<%=ingredient.unit_type%>">
           <input type="text" name="ingredient[][name]" required="true" value="<%=ingredient.name%>">
           <img id="trashButton" src="/images/trash.png" onclick="deleteIngredient('ingredient<%=ingredient.id%>');" alt="Delete Ingredient">
+          <hr>
         </div>
       <% end %>
 
@@ -62,7 +63,7 @@
     <input type='number' step='0.1' name='ingredient[][amount]' required='true' placeholder='3'> \
     <input type='text' name='ingredient[][unit_type]' placeholder='Cups/tablespoons/etc...'> \
     <input type='text' name='ingredient[][name]' placeholder='Ingredient Name'> \
-    <img id='trashButton' src='/images/trash.png' onclick='deleteIngredient(\"newIG\");' alt='Delete Ingredient'></div>";
+    <img id='trashButton' src='/images/trash.png' onclick='deleteIngredient(\"newIG\");' alt='Delete Ingredient'></div><hr>";
     document.getElementById("newIngredient").appendChild(txtNewInputBox);
   }
 

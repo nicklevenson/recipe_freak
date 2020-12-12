@@ -232,7 +232,7 @@
 
 
   .listItem {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     color: grey;
     background-color: rgb(254, 255, 254);
     box-shadow: 1px 1px 5px grey;
@@ -242,7 +242,7 @@
     border-radius: 2%;
     margin: 20px;
     padding-top: 20px;
-    overflow: scroll;
+    overflow-y: scroll;
     transition: .6s ease-in-out;
   }
 
@@ -270,7 +270,7 @@
   }
 
   .editForm {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     max-width: 75%;
     width: 700px;
     background-color: white;
@@ -278,7 +278,11 @@
     margin: 80px auto;
     padding: 30px;
     border-radius: 3%;
-    overflow: scroll;
+    overflow-y: scroll;
+  }
+
+  .editForm h1 {
+    line-height: 50px;
   }
 
   .submitButton input, form {
