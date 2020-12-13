@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     @recipes = Recipe.all.sort_by{|recipe| recipe.likes.count}
-    @cuisines = Recipe.all.collect{|recipe|recipe.cuisine.name}.uniq
+    @cuisines = Recipe.all.select{|recipe| recipe.public? == true}.collect{|recipe|recipe.cuisine.name}.uniq
     erb :welcome
   end
 
