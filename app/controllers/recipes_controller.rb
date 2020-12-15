@@ -46,22 +46,24 @@ class RecipesController < ApplicationController
 
   # PATCH: /recipes/5
   patch "/recipes/:id" do
-    if params[:recipe][:public?] == nil
-      params[:recipe][:public?] = false
-    else
-      params[:recipe][:public?] = true
+    if session[:user_id] == Recipe.find(params[:id]).user_id
+      if params[:recipe][:public?] == nil
+        params[:recipe][:public?] = false
+      else
+        params[:recipe][:public?] = true
+      end
+      recipe = Recipe.find(params[:id])
+      recipe.update(params[:recipe])
+
+      Cuisine.find_or_create_by(params[:cuisine]).recipes << recipe
+
+      recipe.ingredients.destroy_all
+      recipe.ingredients << Ingredient.create(params[:ingredient])
+
+      recipe.steps.destroy_all
+      recipe.steps << Step.create(params[:step])
+      redirect "/recipes/#{recipe.id}"
     end
-    recipe = Recipe.find(params[:id])
-    recipe.update(params[:recipe])
-
-    Cuisine.find_or_create_by(params[:cuisine]).recipes << recipe
-
-    recipe.ingredients.destroy_all
-    recipe.ingredients << Ingredient.create(params[:ingredient])
-
-    recipe.steps.destroy_all
-    recipe.steps << Step.create(params[:step])
-    redirect "/recipes/#{recipe.id}"
   end
 
   # DELETE: /recipes/5/delete
